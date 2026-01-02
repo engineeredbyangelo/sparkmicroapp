@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Artificial Intelligence",
+    "icon": "🤖",
+    "color": "#00D9FF",
+    "articlesCount": 24,
+    "trending": true
+  },
+  {
+    "id": 2,
+    "name": "Web Development",
+    "icon": "🌐",
+    "color": "#FF6B9D",
+    "articlesCount": 42,
+    "trending": false
+  },
+  {
+    "id": 3,
+    "name": "Data Science",
+    "icon": "📊",
+    "color": "#FFD700",
+    "articlesCount": 31,
+    "trending": true
+  },
+  {
+    "id": 4,
+    "name": "Cybersecurity",
+    "icon": "🔒",
+    "color": "#FF4757",
+    "articlesCount": 18,
+    "trending": false
+  },
+  {
+    "id": 5,
+    "name": "DevOps",
+    "icon": "⚙️",
+    "color": "#5F27CD",
+    "articlesCount": 27,
+    "trending": true
+  },
+  {
+    "id": 6,
+    "name": "Mobile Development",
+    "icon": "📱",
+    "color": "#00D2D3",
+    "articlesCount": 35,
+    "trending": false
+  },
+  {
+    "id": 7,
+    "name": "Cloud Computing",
+    "icon": "☁️",
+    "color": "#54A0FF",
+    "articlesCount": 29,
+    "trending": true
+  },
+  {
+    "id": 8,
+    "name": "Blockchain",
+    "icon": "⛓️",
+    "color": "#FFA502",
+    "articlesCount": 15,
+    "trending": false
+  }
+]

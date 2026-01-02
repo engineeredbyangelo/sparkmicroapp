@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding Neural Networks",
+    "category": "AI & Machine Learning",
+    "difficulty": "Intermediate",
+    "duration": "8 min",
+    "progress": 60,
+    "thumbnail": "https://placeholder.com/300x200",
+    "description": "Dive deep into the fundamentals of neural networks and how they power modern AI.",
+    "topics": ["Deep Learning", "AI", "Neural Networks"],
+    "inProgress": true,
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "React Native Fundamentals",
+    "category": "Mobile Development",
+    "difficulty": "Beginner",
+    "duration": "5 min",
+    "progress": 100,
+    "thumbnail": "https://placeholder.com/300x200",
+    "description": "Learn the core concepts of React Native for building cross-platform mobile apps.",
+    "topics": ["React Native", "Mobile", "JavaScript"],
+    "inProgress": false,
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "Quantum Computing Basics",
+    "category": "Computer Science",
+    "difficulty": "Advanced",
+    "duration": "12 min",
+    "progress": 0,
+    "thumbnail": "https://placeholder.com/300x200",
+    "description": "Explore the fascinating world of quantum computing and its potential applications.",
+    "topics": ["Quantum Computing", "Physics", "Computing"],
+    "inProgress": false,
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Cloud Architecture Patterns",
+    "category": "Cloud Computing",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "progress": 35,
+    "thumbnail": "https://placeholder.com/300x200",
+    "description": "Master essential cloud architecture patterns for building scalable applications.",
+    "topics": ["Cloud", "Architecture", "AWS"],
+    "inProgress": true,
+    "completed": false
+  },
+  {
+    "id": 5,
+    "title": "Blockchain Technology Explained",
+    "category": "Cryptocurrency",
+    "difficulty": "Intermediate",
+    "duration": "7 min",
+    "progress": 0,
+    "thumbnail": "https://placeholder.com/300x200",
+    "description": "Understand blockchain technology and its revolutionary impact on digital transactions.",
+    "topics": ["Blockchain", "Crypto", "Web3"],
+    "inProgress": false,
+    "completed": false
+  }
+]

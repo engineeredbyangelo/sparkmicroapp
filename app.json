@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Spark",
+    "slug": "spark-learning",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#000000",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.spark.learning"
+    },
+    "android": {
+      "package": "com.spark.learning"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
