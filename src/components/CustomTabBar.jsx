@@ -10,6 +10,8 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         return '🏠';
       case 'Explore':
         return '🔍';
+      case 'Discover':
+        return '✨'; // Spark Orb will replace this
       case 'Profile':
         return '👤';
       case 'Settings':
@@ -25,6 +27,8 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         return 'Home';
       case 'Explore':
         return 'Explore';
+      case 'Discover':
+        return 'Discover';
       case 'Profile':
         return 'Profile';
       case 'Settings':
@@ -39,7 +43,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
       <View style={styles.tabBarContent}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index;
-          const isExplore = route.name === 'Explore';
+          const isDiscover = route.name === 'Discover';
 
           const onPress = () => {
             const event = navigation.emit({
@@ -53,8 +57,8 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             }
           };
 
-          // Render Explore button separately with Spark orb
-          if (isExplore) {
+          // Render Discover button with Spark orb (center position)
+          if (isDiscover) {
             return (
               <View key={route.key} style={styles.orbContainer}>
                 <TouchableOpacity
@@ -74,7 +78,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               key={route.key}
               activeOpacity={0.7}
               onPress={onPress}
-              style={[styles.tabButton, index > 1 && styles.tabButtonRight]}
+              style={styles.tabButton}
             >
               <Text style={[styles.icon, isFocused && styles.iconFocused]}>
                 {getIcon(route.name)}
@@ -117,9 +121,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingVertical: spacing.sm,
-  },
-  tabButtonRight: {
-    // Right side tabs (Profile & Settings) - after the orb
   },
   icon: {
     fontSize: 24,
