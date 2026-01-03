@@ -1,171 +1,36 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
-  Animated,
-  PanResponder,
   Dimensions,
   Text,
+  TouchableOpacity,
 } from 'react-native';
-import { colors, spacing, typography, animations } from '../styles/theme';
+import { Ionicons } from '@expo/vector-icons';
+import { colors, spacing, typography } from '../styles/theme';
 import LearningCard from './LearningCard';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const SWIPE_THRESHOLD = animations.swipeThreshold;
 const CARD_HEIGHT = SCREEN_HEIGHT * 0.75;
 
 const CardStack = ({ cards, onComplete }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const position = useRef(new Animated.ValueXY()).current;
-  const rotation = useRef(new Animated.Value(0)).current;
 
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (_, gesture) => {
-        position.setValue({ x: gesture.dx, y: gesture.dy });
-        
-        // Rotate card based on horizontal movement
-        const rotateValue = gesture.dx / SCREEN_WIDTH;
-        rotation.setValue(rotateValue);
-      },
-      onPanResponderRelease: (_, gesture) => {
-        if (gesture.dx > SWIPE_THRESHOLD) {
-          // Swipe right - Next card
-          forceSwipe('right');
-        } else if (gesture.dx < -SWIPE_THRESHOLD) {
-          // Swipe left - Previous card
-          if (currentIndex > 0) {
-            forceSwipe('left');
-          } else {
-            resetPosition();
-          }
-        } else {
-          // Reset to center
-          resetPosition();
-        }
-      },
-    })
-  ).current;
-
-  const forceSwipe = (direction) => {
-    const x = direction === 'right' ? SCREEN_WIDTH + 100 : -SCREEN_WIDTH - 100;
-    
-    Animated.parallel([
-      Animated.spring(position.x, {
-        toValue: x,
-        useNativeDriver: false,
-        speed: 20,
-        bounciness: 0,
-      }),
-      Animated.spring(rotation, {
-        toValue: direction === 'right' ? 1 : -1,
-        useNativeDriver: false,
-      }),
-    ]).start(() => onSwipeComplete(direction));
-  };
-
-  const onSwipeComplete = (direction) => {
-    position.setValue({ x: 0, y: 0 });
-    rotation.setValue(0);
-
-    if (direction === 'right') {
-      // Move to next card
-      if (currentIndex < cards.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        onComplete && onComplete();
-      }
-    } else if (direction === 'left') {
-      // Move to previous card
-      if (currentIndex > 0) {
-        setCurrentIndex(currentIndex - 1);
-      }
+  const handleNext = () => {
+    if (currentIndex < cards.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      onComplete && onComplete();
     }
   };
 
-  const resetPosition = () => {
-    Animated.parallel([
-      Animated.spring(position, {
-        toValue: { x: 0, y: 0 },
-        useNativeDriver: false,
-        friction: 5,
-      }),
-      Animated.spring(rotation, {
-        toValue: 0,
-        useNativeDriver: false,
-      }),
-    ]).start();
-  };
-
-  const getCardStyle = (index) => {
-    const isCurrentCard = index === currentIndex;
-    
-    if (isCurrentCard) {
-      const rotate = rotation.interpolate({
-        inputRange: [-1, 0, 1],
-        outputRange: ['-30deg', '0deg', '30deg'],
-      });
-
-      return {
-        ...styles.card,
-        transform: [
-          ...position.getTranslateTransform(),
-          { rotate },
-        ],
-        zIndex: 10,
-      };
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
     }
-
-    // Cards in the back
-    const offset = index - currentIndex;
-    if (offset > 0 && offset <= 2) {
-      return {
-        ...styles.card,
-        transform: [
-          { scale: 1 - offset * 0.05 },
-          { translateY: offset * 10 },
-        ],
-        opacity: 1 - offset * 0.3,
-        zIndex: 10 - offset,
-      };
-    }
-
-    return {
-      ...styles.card,
-      opacity: 0,
-      zIndex: 0,
-    };
   };
 
-  const renderSwipeIndicators = () => {
-    const x = position.x;
-    
-    const leftOpacity = x.interpolate({
-      inputRange: [-SCREEN_WIDTH / 2, 0],
-      outputRange: [1, 0],
-      extrapolate: 'clamp',
-    });
 
-    const rightOpacity = x.interpolate({
-      inputRange: [0, SCREEN_WIDTH / 2],
-      outputRange: [0, 1],
-      extrapolate: 'clamp',
-    });
-
-    return (
-      <>
-        {currentIndex > 0 && (
-          <Animated.View style={[styles.swipeIndicator, styles.leftIndicator, { opacity: leftOpacity }]}>
-            <Text style={styles.indicatorText}>← PREVIOUS</Text>
-          </Animated.View>
-        )}
-        <Animated.View style={[styles.swipeIndicator, styles.rightIndicator, { opacity: rightOpacity }]}>
-          <Text style={styles.indicatorText}>NEXT →</Text>
-        </Animated.View>
-      </>
-    );
-  };
 
   if (cards.length === 0) {
     return (
@@ -174,6 +39,8 @@ const CardStack = ({ cards, onComplete }) => {
       </View>
     );
   }
+
+  const currentCard = cards[currentIndex];
 
   return (
     <View style={styles.container}>
@@ -192,34 +59,40 @@ const CardStack = ({ cards, onComplete }) => {
         </Text>
       </View>
 
-      {/* Card Stack */}
+      {/* Card Display */}
       <View style={styles.cardContainer}>
-        {cards.map((card, index) => {
-          if (index < currentIndex - 1 || index > currentIndex + 2) {
-            return null;
-          }
+        <View style={styles.card}>
+          <LearningCard card={currentCard} />
+        </View>
 
-          const isCurrentCard = index === currentIndex;
+        {/* Navigation Buttons */}
+        {currentIndex > 0 && (
+          <TouchableOpacity
+            style={[styles.navButton, styles.prevButton]}
+            onPress={handlePrevious}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="chevron-back" size={32} color={colors.textPrimary} />
+          </TouchableOpacity>
+        )}
 
-          return (
-            <Animated.View
-              key={card.id}
-              style={getCardStyle(index)}
-              {...(isCurrentCard ? panResponder.panHandlers : {})}
-            >
-              <LearningCard card={card} />
-            </Animated.View>
-          );
-        })}
-
-        {/* Swipe Indicators */}
-        {renderSwipeIndicators()}
+        <TouchableOpacity
+          style={[styles.navButton, styles.nextButton]}
+          onPress={handleNext}
+          activeOpacity={0.7}
+        >
+          <Ionicons 
+            name={currentIndex < cards.length - 1 ? "chevron-forward" : "checkmark"} 
+            size={32} 
+            color={colors.textPrimary} 
+          />
+        </TouchableOpacity>
       </View>
 
       {/* Instructions */}
       <View style={styles.instructions}>
         <Text style={styles.instructionText}>
-          ← Swipe to navigate →
+          {currentIndex > 0 ? '← ' : ''}Tap to navigate{currentIndex < cards.length - 1 ? ' →' : ' ✓'}
         </Text>
       </View>
     </View>
@@ -259,34 +132,33 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
   },
   card: {
-    position: 'absolute',
     width: SCREEN_WIDTH - spacing.xl * 2,
     height: CARD_HEIGHT,
   },
-  swipeIndicator: {
+  navButton: {
     position: 'absolute',
-    top: '50%',
-    transform: [{ translateY: -20 }],
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
-    borderRadius: 12,
-    backgroundColor: colors.primaryBlue + '20',
-    borderWidth: 2,
-    borderColor: colors.primaryBlue,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: colors.cardBackground,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: colors.primaryBlue,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 150, 255, 0.3)',
   },
-  leftIndicator: {
-    left: spacing.xl,
+  prevButton: {
+    left: spacing.md,
   },
-  rightIndicator: {
-    right: spacing.xl,
-  },
-  indicatorText: {
-    ...typography.caption,
-    color: colors.primaryBlue,
-    fontWeight: '700',
-    letterSpacing: 1,
+  nextButton: {
+    right: spacing.md,
   },
   instructions: {
     paddingVertical: spacing.lg,

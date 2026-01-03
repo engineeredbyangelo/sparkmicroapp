@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, spacing, typography } from '../../styles/theme';
 import SparkOrb from '../SparkOrb';
@@ -7,6 +7,11 @@ import SparkOrb from '../SparkOrb';
 const CompletionCard = ({ card }) => {
   return (
     <View style={styles.card}>
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
       <LinearGradient
         colors={[card.color + '40', card.color + '20', 'transparent']}
         style={styles.gradient}
@@ -49,6 +54,7 @@ const CompletionCard = ({ card }) => {
           </View>
         </View>
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -58,10 +64,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.cardBackground,
     borderRadius: 24,
-    padding: spacing.xl,
     borderWidth: 1,
     borderColor: 'rgba(0, 150, 255, 0.2)',
     overflow: 'hidden',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing.xl,
+    flexGrow: 1,
   },
   gradient: {
     position: 'absolute',

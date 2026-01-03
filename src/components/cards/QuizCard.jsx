@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { colors, spacing, typography } from '../../styles/theme';
 
 const QuizCard = ({ card }) => {
@@ -15,6 +15,11 @@ const QuizCard = ({ card }) => {
 
   return (
     <View style={styles.card}>
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
       <View style={styles.header}>
         <Text style={styles.title}>{card.title}</Text>
         <View style={[styles.badge, { backgroundColor: card.color + '20' }]}>
@@ -83,6 +88,7 @@ const QuizCard = ({ card }) => {
       <View style={styles.footer}>
         <Text style={styles.readTime}>⏱ {card.readTime}</Text>
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -92,9 +98,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.cardBackground,
     borderRadius: 24,
-    padding: spacing.xl,
     borderWidth: 1,
     borderColor: 'rgba(0, 150, 255, 0.2)',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing.xl,
+    flexGrow: 1,
   },
   header: {
     flexDirection: 'row',

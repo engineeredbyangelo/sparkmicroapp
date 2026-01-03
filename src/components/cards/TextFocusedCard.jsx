@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { colors, spacing, typography } from '../../styles/theme';
 
 const TextFocusedCard = ({ card }) => {
   return (
     <View style={styles.card}>
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
       <View style={styles.header}>
         <Text style={styles.title}>{card.title}</Text>
         <View style={styles.metaRow}>
@@ -36,6 +41,7 @@ const TextFocusedCard = ({ card }) => {
           <Text style={[styles.categoryText, { color: card.color }]}>{card.category}</Text>
         </View>
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -45,9 +51,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.cardBackground,
     borderRadius: 24,
-    padding: spacing.xl,
     borderWidth: 1,
     borderColor: 'rgba(0, 150, 255, 0.2)',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing.xl,
+    flexGrow: 1,
   },
   header: {
     marginBottom: spacing.xl,
