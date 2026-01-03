@@ -1,23 +1,27 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { colors, spacing } from '../styles/theme';
+import { View, TouchableOpacity, StyleSheet, Text, Animated } from 'react-native';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { colors, spacing, animations } from '../styles/theme';
 import SparkOrb from './SparkOrb';
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
-  const getIcon = (routeName) => {
+  const getIcon = (routeName, isFocused) => {
+    const iconColor = isFocused ? colors.primaryBlue : colors.textMuted;
+    const iconSize = 24;
+
     switch (routeName) {
       case 'Home':
-        return '🏠';
+        return <Ionicons name={isFocused ? "home" : "home-outline"} size={iconSize} color={iconColor} />;
       case 'Explore':
-        return '🔍';
+        return <Ionicons name={isFocused ? "search" : "search-outline"} size={iconSize} color={iconColor} />;
       case 'Discover':
-        return '✨'; // Spark Orb will replace this
+        return <MaterialCommunityIcons name="spark" size={iconSize} color={iconColor} />;
       case 'Profile':
-        return '👤';
+        return <Ionicons name={isFocused ? "person" : "person-outline"} size={iconSize} color={iconColor} />;
       case 'Settings':
-        return '⚙️';
+        return <Ionicons name={isFocused ? "settings" : "settings-outline"} size={iconSize} color={iconColor} />;
       default:
-        return '●';
+        return <Ionicons name="ellipse" size={iconSize} color={iconColor} />;
     }
   };
 
@@ -80,9 +84,9 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               onPress={onPress}
               style={styles.tabButton}
             >
-              <Text style={[styles.icon, isFocused && styles.iconFocused]}>
-                {getIcon(route.name)}
-              </Text>
+              <View style={styles.iconContainer}>
+                {getIcon(route.name, isFocused)}
+              </View>
               <Text style={[styles.label, isFocused && styles.labelFocused]}>
                 {getLabel(route.name)}
               </Text>
@@ -121,6 +125,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingVertical: spacing.sm,
+  },
+  iconContainer: {
+    marginBottom: 4,
   },
   icon: {
     fontSize: 24,

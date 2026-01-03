@@ -1,0 +1,176 @@
+[
+  {
+    "id": 1,
+    "type": "hero",
+    "title": "Neural Networks",
+    "subtitle": "The Building Blocks of AI",
+    "content": "Neural networks are computational models inspired by the human brain. They consist of interconnected nodes that process and transmit information.",
+    "difficulty": "Beginner",
+    "readTime": "2 min",
+    "category": "AI & Machine Learning",
+    "color": "#0096FF",
+    "icon": "🧠"
+  },
+  {
+    "id": 2,
+    "type": "text-focused",
+    "title": "How Neurons Work",
+    "content": "Each neuron receives input signals, processes them using an activation function, and passes the result to the next layer. This simple mechanism, when replicated thousands of times, creates powerful learning systems.",
+    "keyPoints": [
+      "Neurons receive weighted inputs",
+      "Activation functions introduce non-linearity",
+      "Output passes to next layer"
+    ],
+    "difficulty": "Beginner",
+    "readTime": "3 min",
+    "category": "AI & Machine Learning",
+    "color": "#0066CC"
+  },
+  {
+    "id": 3,
+    "type": "visual",
+    "title": "Network Architecture",
+    "content": "Neural networks are organized in layers: input, hidden, and output. Deep learning uses multiple hidden layers for complex pattern recognition.",
+    "visualType": "diagram",
+    "visualData": {
+      "layers": ["Input", "Hidden 1", "Hidden 2", "Output"],
+      "connections": "fully-connected"
+    },
+    "difficulty": "Intermediate",
+    "readTime": "4 min",
+    "category": "AI & Machine Learning",
+    "color": "#001F3F"
+  },
+  {
+    "id": 4,
+    "type": "quote",
+    "title": "Training Process",
+    "quote": "A neural network learns by adjusting weights through backpropagation, minimizing the difference between predicted and actual outputs.",
+    "author": "Geoffrey Hinton",
+    "content": "The training process involves feeding data forward, calculating error, and propagating corrections backward through the network.",
+    "difficulty": "Intermediate",
+    "readTime": "3 min",
+    "category": "AI & Machine Learning",
+    "color": "#00D9FF"
+  },
+  {
+    "id": 5,
+    "type": "comparison",
+    "title": "Traditional vs Neural Computing",
+    "leftSide": {
+      "title": "Traditional Programming",
+      "points": ["Explicit rules", "Human-defined logic", "Limited adaptability"]
+    },
+    "rightSide": {
+      "title": "Neural Networks",
+      "points": ["Learns from data", "Discovers patterns", "Highly adaptable"]
+    },
+    "difficulty": "Beginner",
+    "readTime": "2 min",
+    "category": "AI & Machine Learning",
+    "color": "#BD00FF"
+  },
+  {
+    "id": 6,
+    "type": "stat-highlight",
+    "title": "AI Performance Metrics",
+    "stats": [
+      { "value": "97%", "label": "Image Recognition Accuracy" },
+      { "value": "10M+", "label": "Parameters in GPT-3" },
+      { "value": "100x", "label": "Faster than Humans at Chess" }
+    ],
+    "content": "Modern neural networks achieve superhuman performance in many specialized tasks.",
+    "difficulty": "Beginner",
+    "readTime": "2 min",
+    "category": "AI & Machine Learning",
+    "color": "#FF6B9D"
+  },
+  {
+    "id": 7,
+    "type": "timeline",
+    "title": "Evolution of AI",
+    "events": [
+      { "year": "1943", "event": "First neural network model" },
+      { "year": "1986", "event": "Backpropagation algorithm" },
+      { "year": "2012", "event": "Deep learning breakthrough" },
+      { "year": "2023", "event": "Large language models" }
+    ],
+    "difficulty": "Beginner",
+    "readTime": "3 min",
+    "category": "AI & Machine Learning",
+    "color": "#FFD700"
+  },
+  {
+    "id": 8,
+    "type": "interactive-quiz",
+    "title": "Quick Check",
+    "question": "What is the primary function of an activation function in a neural network?",
+    "options": [
+      "Store data permanently",
+      "Introduce non-linearity",
+      "Connect to the internet",
+      "Display results"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Activation functions introduce non-linearity, allowing networks to learn complex patterns beyond simple linear relationships.",
+    "difficulty": "Intermediate",
+    "readTime": "2 min",
+    "category": "AI & Machine Learning",
+    "color": "#00FF88"
+  },
+  {
+    "id": 9,
+    "type": "code-snippet",
+    "title": "Simple Neuron in Python",
+    "content": "Here's how a basic neuron processes information:",
+    "code": "def neuron(inputs, weights, bias):\n    # Weighted sum\n    total = sum(i * w for i, w in zip(inputs, weights))\n    # Add bias and activate\n    return sigmoid(total + bias)",
+    "language": "python",
+    "difficulty": "Intermediate",
+    "readTime": "3 min",
+    "category": "AI & Machine Learning",
+    "color": "#0096FF"
+  },
+  {
+    "id": 10,
+    "type": "action-steps",
+    "title": "Build Your First Network",
+    "steps": [
+      "Choose a framework (TensorFlow, PyTorch)",
+      "Prepare your dataset",
+      "Define network architecture",
+      "Train with backpropagation",
+      "Evaluate and iterate"
+    ],
+    "difficulty": "Advanced",
+    "readTime": "4 min",
+    "category": "AI & Machine Learning",
+    "color": "#0066CC"
+  },
+  {
+    "id": 11,
+    "type": "key-insight",
+    "title": "The Power of Deep Learning",
+    "insight": "Deep networks can learn hierarchical representations - low layers detect edges, middle layers recognize shapes, and deep layers understand concepts.",
+    "examples": [
+      "Image: edges → textures → objects",
+      "Text: characters → words → meaning",
+      "Audio: frequencies → phonemes → speech"
+    ],
+    "difficulty": "Advanced",
+    "readTime": "4 min",
+    "category": "AI & Machine Learning",
+    "color": "#001F3F"
+  },
+  {
+    "id": 12,
+    "type": "completion",
+    "title": "Module Complete!",
+    "content": "You've learned the fundamentals of neural networks - from individual neurons to deep learning architectures. Ready to explore more?",
+    "achievement": "Neural Networks Master",
+    "nextModule": "Advanced Deep Learning",
+    "difficulty": "Beginner",
+    "readTime": "1 min",
+    "category": "AI & Machine Learning",
+    "color": "#00D9FF"
+  }
+]

@@ -1,5 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+export const fonts = {
+  heading: 'Orbitron-Bold',
+  headingMedium: 'Orbitron-Medium',
+  body: 'Inter-Regular',
+  bodySemiBold: 'Inter-SemiBold',
+  bodyBold: 'Inter-Bold',
+  mono: 'SpaceMono-Regular',
+};
+
 export const colors = {
   // Primary colors
   background: '#000000',
@@ -9,6 +18,8 @@ export const colors = {
   darkBlue: '#001F3F',
   accentCyan: '#00D9FF',
   accentPink: '#FF6B9D',
+  accentPurple: '#BD00FF',
+  accentYellow: '#FFD700',
   
   // Text colors
   textPrimary: '#FFFFFF',
@@ -20,10 +31,33 @@ export const colors = {
   warning: '#FFD700',
   error: '#FF4757',
   
-  // Gradient colors
-  gradientStart: 'rgba(0, 150, 255, 0.3)',
+  // Enhanced gradient colors (7 stops for smooth transitions)
+  gradientStart: 'rgba(0, 150, 255, 0.4)',
+  gradientStep1: 'rgba(0, 130, 220, 0.3)',
+  gradientStep2: 'rgba(0, 110, 190, 0.2)',
   gradientMiddle: 'rgba(0, 100, 200, 0.15)',
-  gradientEnd: 'rgba(0, 50, 100, 0.05)',
+  gradientStep3: 'rgba(0, 70, 150, 0.1)',
+  gradientStep4: 'rgba(0, 50, 100, 0.07)',
+  gradientEnd: 'rgba(0, 30, 70, 0.03)',
+};
+
+export const animations = {
+  // Duration
+  fast: 200,
+  normal: 300,
+  slow: 500,
+  verySlow: 800,
+  
+  // Easing curves
+  easeOut: [0.25, 0.1, 0.25, 1],
+  easeInOut: [0.42, 0, 0.58, 1],
+  spring: [0.68, -0.55, 0.265, 1.55],
+  
+  // Common animation values
+  swipeThreshold: 120,
+  rotationLimit: 30,
+  scaleDown: 0.95,
+  scaleUp: 1.05,
 };
 
 export const spacing = {
@@ -37,38 +71,68 @@ export const spacing = {
 
 export const typography = {
   h1: {
+    fontFamily: fonts.heading,
     fontSize: 32,
     fontWeight: '700',
     color: colors.textPrimary,
-    letterSpacing: 0.5,
+    letterSpacing: 1.2,
+    lineHeight: 40,
+    textTransform: 'uppercase',
   },
   h2: {
+    fontFamily: fonts.headingMedium,
     fontSize: 24,
     fontWeight: '600',
     color: colors.textPrimary,
-    letterSpacing: 0.3,
+    letterSpacing: 0.8,
+    lineHeight: 32,
   },
   h3: {
+    fontFamily: fonts.bodySemiBold,
     fontSize: 20,
     fontWeight: '600',
     color: colors.textPrimary,
+    letterSpacing: 0.4,
+    lineHeight: 28,
+  },
+  h4: {
+    fontFamily: fonts.bodySemiBold,
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.textPrimary,
+    letterSpacing: 0.3,
+    lineHeight: 26,
   },
   body: {
+    fontFamily: fonts.body,
     fontSize: 16,
     fontWeight: '400',
     color: colors.textPrimary,
-    lineHeight: 24,
+    lineHeight: 26,
+    letterSpacing: 0.3,
   },
   bodySecondary: {
+    fontFamily: fonts.body,
     fontSize: 14,
     fontWeight: '400',
     color: colors.textSecondary,
-    lineHeight: 20,
+    lineHeight: 22,
+    letterSpacing: 0.2,
   },
   caption: {
+    fontFamily: fonts.body,
     fontSize: 12,
     fontWeight: '400',
     color: colors.textMuted,
+    letterSpacing: 0.4,
+    lineHeight: 18,
+  },
+  mono: {
+    fontFamily: fonts.mono,
+    fontSize: 14,
+    fontWeight: '400',
+    color: colors.accentCyan,
+    letterSpacing: 0,
   },
 };
 
@@ -142,4 +206,4 @@ export const globalStyles = StyleSheet.create({
   },
 });
 
-export default { colors, spacing, typography, globalStyles };
+export default { fonts, colors, spacing, typography, animations, globalStyles };
