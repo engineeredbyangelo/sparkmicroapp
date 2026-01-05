@@ -9,15 +9,38 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, spacing, typography, globalStyles } from '../styles/theme';
 
 import topicsData from '../data/topics.json';
 import articlesData from '../data/articles.json';
 
-const ExploreScreen = () => {
+const ExploreScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const categories = [...new Set(articlesData.map(article => article.category))];
+
+  const handleTopicPress = (topic) => {
+    navigation.navigate('TopicDetail', {
+      topicId: topic.id,
+      topicTitle: topic.title || topic.name,
+      topicColor: topic.color,
+    });
+  };
+
+  const getIconComponent = (iconName) => {
+    if (iconName?.startsWith('MaterialCommunityIcons/')) {
+      return MaterialCommunityIcons;
+    }
+    return Ionicons;
+  };
+
+  const getIconName = (iconName) => {
+    if (iconName?.includes('/')) {
+      return iconName.split('/')[1];
+    }
+    return iconName || 'book-outline';
+  };
 
   return (
     <SafeAreaView style={globalStyles.safeArea} edges={['top']}>
@@ -36,7 +59,7 @@ const ExploreScreen = () => {
         {/* Search Bar */}
         <View style={styles.searchContainer}>
           <View style={[globalStyles.card, styles.searchBar]}>
-            <Text style={styles.searchIcon}>🔍</Text>
+            <Ionicons name="search" size={20} color={colors.textMuted} style={styles.searchIcon} />
             <TextInput
               style={styles.searchInput}
               placeholder="Search topics, lessons..."
@@ -51,23 +74,35 @@ const ExploreScreen = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>All Topics</Text>
           <View style={styles.topicsGrid}>
-            {topicsData.map(topic => (
-              <TouchableOpacity key={topic.id} style={styles.topicItem} activeOpacity={0.8}>
-                <LinearGradient
-                  colors={[`${topic.color}40`, `${topic.color}15`]}
-                  style={[globalStyles.card, styles.topicCard]}
+            {topicsData.map(topic => {
+              const IconComponent = getIconComponent(topic.icon);
+              const iconName = getIconName(topic.icon);
+              
+              return (
+                <TouchableOpacity 
+                  key={topic.id} 
+                  style={styles.topicItem} 
+                  activeOpacity={0.8}
+                  onPress={() => handleTopicPress(topic)}
                 >
-                  <Text style={styles.topicIcon}>{topic.icon}</Text>
-                  <Text style={styles.topicName}>{topic.name}</Text>
-                  <Text style={styles.topicCount}>{topic.articlesCount} articles</Text>
-                  {topic.trending && (
-                    <View style={styles.trendingBadge}>
-                      <Text style={styles.trendingText}>🔥</Text>
+                  <LinearGradient
+                    colors={[`${topic.color}40`, `${topic.color}15`]}
+                    style={[globalStyles.card, styles.topicCard]}
+                  >
+                    <View style={styles.topicIconContainer}>
+                      <IconComponent name={iconName} size={32} color={topic.color} />
                     </View>
-                  )}
-                </LinearGradient>
-              </TouchableOpacity>
-            ))}
+                    <Text style={styles.topicName}>{topic.name}</Text>
+                    <Text style={styles.topicCount}>{topic.articlesCount} articles</Text>
+                    {topic.trending && (
+                      <View style={styles.trendingBadge}>
+                        <Ionicons name="flame" size={12} color={colors.accentOrange} />
+                      </View>
+                    )}
+                  </LinearGradient>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         </View>
 
@@ -163,8 +198,13 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     justifyContent: 'space-between',
   },
-  topicIcon: {
-    fontSize: 40,
+  topicIconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 14,
+    backgroundColor: colors.cardBackground,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   topicName: {
     ...typography.body,
@@ -185,9 +225,6 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  trendingText: {
-    fontSize: 16,
   },
   categoryCard: {
     marginBottom: spacing.md,

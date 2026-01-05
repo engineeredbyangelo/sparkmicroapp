@@ -8,9 +8,12 @@
     "progress": 60,
     "thumbnail": "https://placeholder.com/300x200",
     "description": "Dive deep into the fundamentals of neural networks and how they power modern AI.",
-    "topics": ["Deep Learning", "AI", "Neural Networks"],
+    "topics": ["Artificial Intelligence", "Deep Learning"],
     "inProgress": true,
-    "completed": false
+    "completed": false,
+    "moduleId": "neural-networks-101",
+    "currentCardIndex": 7,
+    "icon": "Ionicons/brain-outline"
   },
   {
     "id": 2,
@@ -21,9 +24,10 @@
     "progress": 100,
     "thumbnail": "https://placeholder.com/300x200",
     "description": "Learn the core concepts of React Native for building cross-platform mobile apps.",
-    "topics": ["React Native", "Mobile", "JavaScript"],
+    "topics": ["Mobile Development", "Web Development"],
     "inProgress": false,
-    "completed": true
+    "completed": true,
+    "icon": "Ionicons/phone-portrait-outline"
   },
   {
     "id": 3,
@@ -34,9 +38,12 @@
     "progress": 0,
     "thumbnail": "https://placeholder.com/300x200",
     "description": "Explore the fascinating world of quantum computing and its potential applications.",
-    "topics": ["Quantum Computing", "Physics", "Computing"],
+    "topics": ["Artificial Intelligence", "Data Science"],
     "inProgress": false,
-    "completed": false
+    "completed": false,
+    "moduleId": "quantum-computing-basics",
+    "currentCardIndex": 0,
+    "icon": "MaterialCommunityIcons/atom"
   },
   {
     "id": 4,
@@ -44,24 +51,458 @@
     "category": "Cloud Computing",
     "difficulty": "Intermediate",
     "duration": "10 min",
-    "progress": 35,
+    "progress": 30,
     "thumbnail": "https://placeholder.com/300x200",
     "description": "Master essential cloud architecture patterns for building scalable applications.",
-    "topics": ["Cloud", "Architecture", "AWS"],
+    "topics": ["Cloud Computing", "DevOps"],
     "inProgress": true,
-    "completed": false
+    "completed": false,
+    "icon": "Ionicons/cloud-outline"
   },
   {
     "id": 5,
-    "title": "Blockchain Technology Explained",
-    "category": "Cryptocurrency",
-    "difficulty": "Intermediate",
-    "duration": "7 min",
+    "title": "Rust Programming Guide",
+    "category": "Programming",
+    "difficulty": "Advanced",
+    "duration": "15 min",
     "progress": 0,
     "thumbnail": "https://placeholder.com/300x200",
-    "description": "Understand blockchain technology and its revolutionary impact on digital transactions.",
-    "topics": ["Blockchain", "Crypto", "Web3"],
+    "description": "Get started with Rust and learn about memory safety without garbage collection.",
+    "topics": ["Web Development"],
     "inProgress": false,
-    "completed": false
+    "completed": false,
+    "moduleId": "react-native-fundamentals",
+    "currentCardIndex": 0,
+    "icon": "MaterialCommunityIcons/language-rust"
+  },
+  {
+    "id": 6,
+    "title": "Machine Learning Algorithms",
+    "category": "AI & Machine Learning",
+    "difficulty": "Intermediate",
+    "duration": "9 min",
+    "description": "Explore supervised and unsupervised learning algorithms used in modern AI.",
+    "topics": ["Artificial Intelligence", "Data Science"],
+    "icon": "MaterialCommunityIcons/robot-outline"
+  },
+  {
+    "id": 7,
+    "title": "Natural Language Processing",
+    "category": "AI & Machine Learning",
+    "difficulty": "Advanced",
+    "duration": "11 min",
+    "description": "Understand how machines process and analyze human language.",
+    "topics": ["Artificial Intelligence"],
+    "icon": "Ionicons/chatbubbles-outline"
+  },
+  {
+    "id": 8,
+    "title": "Computer Vision Fundamentals",
+    "category": "AI & Machine Learning",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Learn how AI systems interpret and analyze visual data.",
+    "topics": ["Artificial Intelligence", "Data Science"],
+    "icon": "Ionicons/eye-outline"
+  },
+  {
+    "id": 9,
+    "title": "Reinforcement Learning",
+    "category": "AI & Machine Learning",
+    "difficulty": "Advanced",
+    "duration": "13 min",
+    "description": "Discover how agents learn optimal behaviors through trial and error.",
+    "topics": ["Artificial Intelligence"],
+    "icon": "MaterialCommunityIcons/chess-queen"
+  },
+  {
+    "id": 10,
+    "title": "AI Ethics and Bias",
+    "category": "AI & Machine Learning",
+    "difficulty": "Beginner",
+    "duration": "7 min",
+    "description": "Explore the ethical implications and biases in artificial intelligence.",
+    "topics": ["Artificial Intelligence"],
+    "icon": "Ionicons/shield-checkmark-outline"
+  },
+  {
+    "id": 11,
+    "title": "HTML5 & Semantic Web",
+    "category": "Web Development",
+    "difficulty": "Beginner",
+    "duration": "6 min",
+    "description": "Master modern HTML5 features and semantic markup for better web structure.",
+    "topics": ["Web Development"],
+    "icon": "Ionicons/code-slash-outline"
+  },
+  {
+    "id": 12,
+    "title": "CSS Grid & Flexbox",
+    "category": "Web Development",
+    "difficulty": "Intermediate",
+    "duration": "8 min",
+    "description": "Build responsive layouts with CSS Grid and Flexbox techniques.",
+    "topics": ["Web Development"],
+    "icon": "MaterialCommunityIcons/grid"
+  },
+  {
+    "id": 13,
+    "title": "JavaScript ES6+",
+    "category": "Web Development",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Learn modern JavaScript features like arrow functions, promises, and async/await.",
+    "topics": ["Web Development"],
+    "icon": "MaterialCommunityIcons/language-javascript"
+  },
+  {
+    "id": 14,
+    "title": "TypeScript for React",
+    "category": "Web Development",
+    "difficulty": "Advanced",
+    "duration": "12 min",
+    "description": "Add type safety to your React applications with TypeScript.",
+    "topics": ["Web Development"],
+    "icon": "MaterialCommunityIcons/language-typescript"
+  },
+  {
+    "id": 15,
+    "title": "Web Performance Optimization",
+    "category": "Web Development",
+    "difficulty": "Intermediate",
+    "duration": "9 min",
+    "description": "Techniques for improving website speed and Core Web Vitals.",
+    "topics": ["Web Development"],
+    "icon": "Ionicons/speedometer-outline"
+  },
+  {
+    "id": 16,
+    "title": "GraphQL API Design",
+    "category": "Web Development",
+    "difficulty": "Advanced",
+    "duration": "11 min",
+    "description": "Design and implement efficient GraphQL APIs for modern applications.",
+    "topics": ["Web Development", "Cloud Computing"],
+    "icon": "MaterialCommunityIcons/graphql"
+  },
+  {
+    "id": 17,
+    "title": "Python Data Analysis",
+    "category": "Data Science",
+    "difficulty": "Beginner",
+    "duration": "7 min",
+    "description": "Use pandas and NumPy for powerful data manipulation and analysis.",
+    "topics": ["Data Science"],
+    "icon": "MaterialCommunityIcons/language-python"
+  },
+  {
+    "id": 18,
+    "title": "Data Visualization with D3",
+    "category": "Data Science",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Create interactive and dynamic data visualizations using D3.js.",
+    "topics": ["Data Science", "Web Development"],
+    "icon": "Ionicons/bar-chart-outline"
+  },
+  {
+    "id": 19,
+    "title": "Statistical Inference",
+    "category": "Data Science",
+    "difficulty": "Advanced",
+    "duration": "14 min",
+    "description": "Master hypothesis testing, confidence intervals, and p-values.",
+    "topics": ["Data Science"],
+    "icon": "MaterialCommunityIcons/chart-bell-curve"
+  },
+  {
+    "id": 20,
+    "title": "Big Data with Apache Spark",
+    "category": "Data Science",
+    "difficulty": "Advanced",
+    "duration": "15 min",
+    "description": "Process large-scale datasets efficiently with Apache Spark.",
+    "topics": ["Data Science", "Cloud Computing"],
+    "icon": "MaterialCommunityIcons/lightning-bolt"
+  },
+  {
+    "id": 21,
+    "title": "SQL for Data Analysis",
+    "category": "Data Science",
+    "difficulty": "Beginner",
+    "duration": "8 min",
+    "description": "Query and analyze data using structured query language.",
+    "topics": ["Data Science"],
+    "icon": "MaterialCommunityIcons/database"
+  },
+  {
+    "id": 22,
+    "title": "Network Security Fundamentals",
+    "category": "Cybersecurity",
+    "difficulty": "Beginner",
+    "duration": "6 min",
+    "description": "Understand firewalls, VPNs, and network security protocols.",
+    "topics": ["Cybersecurity"],
+    "icon": "Ionicons/shield-outline"
+  },
+  {
+    "id": 23,
+    "title": "Penetration Testing Basics",
+    "category": "Cybersecurity",
+    "difficulty": "Intermediate",
+    "duration": "11 min",
+    "description": "Learn ethical hacking techniques to identify security vulnerabilities.",
+    "topics": ["Cybersecurity"],
+    "icon": "MaterialCommunityIcons/security"
+  },
+  {
+    "id": 24,
+    "title": "Cryptography Essentials",
+    "category": "Cybersecurity",
+    "difficulty": "Advanced",
+    "duration": "13 min",
+    "description": "Explore encryption algorithms, hashing, and digital signatures.",
+    "topics": ["Cybersecurity"],
+    "icon": "Ionicons/key-outline"
+  },
+  {
+    "id": 25,
+    "title": "Web Application Security",
+    "category": "Cybersecurity",
+    "difficulty": "Intermediate",
+    "duration": "9 min",
+    "description": "Protect against XSS, CSRF, SQL injection, and other web attacks.",
+    "topics": ["Cybersecurity", "Web Development"],
+    "icon": "Ionicons/lock-closed-outline"
+  },
+  {
+    "id": 26,
+    "title": "CI/CD Pipeline Design",
+    "category": "DevOps",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Build automated pipelines for continuous integration and deployment.",
+    "topics": ["DevOps"],
+    "icon": "MaterialCommunityIcons/pipe"
+  },
+  {
+    "id": 27,
+    "title": "Docker Containerization",
+    "category": "DevOps",
+    "difficulty": "Beginner",
+    "duration": "7 min",
+    "description": "Package and deploy applications using Docker containers.",
+    "topics": ["DevOps", "Cloud Computing"],
+    "icon": "MaterialCommunityIcons/docker"
+  },
+  {
+    "id": 28,
+    "title": "Kubernetes Orchestration",
+    "category": "DevOps",
+    "difficulty": "Advanced",
+    "duration": "14 min",
+    "description": "Manage containerized applications at scale with Kubernetes.",
+    "topics": ["DevOps", "Cloud Computing"],
+    "icon": "MaterialCommunityIcons/kubernetes"
+  },
+  {
+    "id": 29,
+    "title": "Infrastructure as Code",
+    "category": "DevOps",
+    "difficulty": "Intermediate",
+    "duration": "11 min",
+    "description": "Automate infrastructure provisioning with Terraform and Ansible.",
+    "topics": ["DevOps", "Cloud Computing"],
+    "icon": "MaterialCommunityIcons/code-braces"
+  },
+  {
+    "id": 30,
+    "title": "Monitoring & Observability",
+    "category": "DevOps",
+    "difficulty": "Intermediate",
+    "duration": "9 min",
+    "description": "Implement logging, metrics, and tracing for system reliability.",
+    "topics": ["DevOps"],
+    "icon": "Ionicons/pulse-outline"
+  },
+  {
+    "id": 31,
+    "title": "iOS Development with SwiftUI",
+    "category": "Mobile Development",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Build modern iOS apps using Apple's declarative UI framework.",
+    "topics": ["Mobile Development"],
+    "icon": "MaterialCommunityIcons/apple"
+  },
+  {
+    "id": 32,
+    "title": "Android Jetpack Compose",
+    "category": "Mobile Development",
+    "difficulty": "Intermediate",
+    "duration": "11 min",
+    "description": "Create native Android UIs with Kotlin and Jetpack Compose.",
+    "topics": ["Mobile Development"],
+    "icon": "MaterialCommunityIcons/android"
+  },
+  {
+    "id": 33,
+    "title": "Flutter Cross-Platform",
+    "category": "Mobile Development",
+    "difficulty": "Beginner",
+    "duration": "8 min",
+    "description": "Develop apps for iOS and Android with a single codebase using Flutter.",
+    "topics": ["Mobile Development"],
+    "icon": "MaterialCommunityIcons/flutter"
+  },
+  {
+    "id": 34,
+    "title": "Mobile App Performance",
+    "category": "Mobile Development",
+    "difficulty": "Advanced",
+    "duration": "12 min",
+    "description": "Optimize rendering, memory, and battery usage in mobile apps.",
+    "topics": ["Mobile Development"],
+    "icon": "Ionicons/flash-outline"
+  },
+  {
+    "id": 35,
+    "title": "AWS Cloud Services",
+    "category": "Cloud Computing",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Navigate EC2, S3, Lambda, and other core AWS services.",
+    "topics": ["Cloud Computing"],
+    "icon": "MaterialCommunityIcons/aws"
+  },
+  {
+    "id": 36,
+    "title": "Azure Fundamentals",
+    "category": "Cloud Computing",
+    "difficulty": "Beginner",
+    "duration": "8 min",
+    "description": "Get started with Microsoft Azure cloud platform and services.",
+    "topics": ["Cloud Computing"],
+    "icon": "MaterialCommunityIcons/microsoft-azure"
+  },
+  {
+    "id": 37,
+    "title": "Google Cloud Platform",
+    "category": "Cloud Computing",
+    "difficulty": "Intermediate",
+    "duration": "9 min",
+    "description": "Leverage GCP's compute, storage, and machine learning services.",
+    "topics": ["Cloud Computing", "Artificial Intelligence"],
+    "icon": "MaterialCommunityIcons/google-cloud"
+  },
+  {
+    "id": 38,
+    "title": "Serverless Architecture",
+    "category": "Cloud Computing",
+    "difficulty": "Advanced",
+    "duration": "13 min",
+    "description": "Build scalable applications without managing servers using FaaS.",
+    "topics": ["Cloud Computing", "DevOps"],
+    "icon": "MaterialCommunityIcons/server-off"
+  },
+  {
+    "id": 39,
+    "title": "Blockchain Fundamentals",
+    "category": "Blockchain",
+    "difficulty": "Beginner",
+    "duration": "9 min",
+    "description": "Understand distributed ledgers, consensus, and cryptocurrency basics.",
+    "topics": ["Blockchain"],
+    "icon": "MaterialCommunityIcons/link-variant"
+  },
+  {
+    "id": 40,
+    "title": "Smart Contract Development",
+    "category": "Blockchain",
+    "difficulty": "Advanced",
+    "duration": "14 min",
+    "description": "Write and deploy Ethereum smart contracts with Solidity.",
+    "topics": ["Blockchain", "Web Development"],
+    "icon": "MaterialCommunityIcons/file-document-outline"
+  },
+  {
+    "id": 41,
+    "title": "Deep Learning with PyTorch",
+    "category": "AI & Machine Learning",
+    "difficulty": "Advanced",
+    "duration": "15 min",
+    "description": "Build neural networks using PyTorch's dynamic computation graphs.",
+    "topics": ["Artificial Intelligence", "Data Science"],
+    "icon": "MaterialCommunityIcons/brain"
+  },
+  {
+    "id": 42,
+    "title": "TensorFlow for Beginners",
+    "category": "AI & Machine Learning",
+    "difficulty": "Beginner",
+    "duration": "8 min",
+    "description": "Get started with Google's TensorFlow machine learning framework.",
+    "topics": ["Artificial Intelligence"],
+    "icon": "MaterialCommunityIcons/tensorflow"
+  },
+  {
+    "id": 43,
+    "title": "REST API Best Practices",
+    "category": "Web Development",
+    "difficulty": "Intermediate",
+    "duration": "9 min",
+    "description": "Design scalable and maintainable RESTful web services.",
+    "topics": ["Web Development", "Cloud Computing"],
+    "icon": "Ionicons/server-outline"
+  },
+  {
+    "id": 44,
+    "title": "OAuth 2.0 Authentication",
+    "category": "Cybersecurity",
+    "difficulty": "Intermediate",
+    "duration": "10 min",
+    "description": "Implement secure authentication flows with OAuth 2.0 and JWT.",
+    "topics": ["Cybersecurity", "Web Development"],
+    "icon": "Ionicons/finger-print-outline"
+  },
+  {
+    "id": 45,
+    "title": "Git Version Control",
+    "category": "DevOps",
+    "difficulty": "Beginner",
+    "duration": "6 min",
+    "description": "Master Git workflows, branching strategies, and collaboration.",
+    "topics": ["DevOps"],
+    "icon": "MaterialCommunityIcons/git"
+  },
+  {
+    "id": 46,
+    "title": "Time Series Analysis",
+    "category": "Data Science",
+    "difficulty": "Advanced",
+    "duration": "13 min",
+    "description": "Forecast trends and patterns in temporal data sequences.",
+    "topics": ["Data Science", "Artificial Intelligence"],
+    "icon": "Ionicons/trending-up-outline"
+  },
+  {
+    "id": 47,
+    "title": "Microservices Architecture",
+    "category": "Cloud Computing",
+    "difficulty": "Advanced",
+    "duration": "12 min",
+    "description": "Design distributed systems using microservices patterns.",
+    "topics": ["Cloud Computing", "DevOps"],
+    "icon": "MaterialCommunityIcons/hexagon-multiple"
+  },
+  {
+    "id": 48,
+    "title": "Zero Trust Security",
+    "category": "Cybersecurity",
+    "difficulty": "Advanced",
+    "duration": "11 min",
+    "description": "Implement zero trust network architecture for modern security.",
+    "topics": ["Cybersecurity", "Cloud Computing"],
+    "icon": "MaterialCommunityIcons/shield-lock"
   }
 ]

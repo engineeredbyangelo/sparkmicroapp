@@ -20,16 +20,28 @@ export const colors = {
   accentPink: '#FF6B9D',
   accentPurple: '#BD00FF',
   accentYellow: '#FFD700',
+  accentGreen: '#00FF88',
+  accentRed: '#FF4757',
+  accentOrange: '#FF9800',
   
   // Text colors
   textPrimary: '#FFFFFF',
   textSecondary: '#B0B0B0',
+  textTertiary: '#808080',
   textMuted: '#666666',
+  
+  // Border colors
+  border: 'rgba(0, 150, 255, 0.2)',
+  borderLight: 'rgba(255, 255, 255, 0.1)',
   
   // Status colors
   success: '#00FF88',
   warning: '#FFD700',
   error: '#FF4757',
+  
+  // Card gradient colors
+  cardGradientStart: 'rgba(10, 10, 10, 0.95)',
+  cardGradientEnd: 'rgba(0, 0, 0, 0.9)',
   
   // Enhanced gradient colors (7 stops for smooth transitions)
   gradientStart: 'rgba(0, 150, 255, 0.4)',
@@ -39,6 +51,11 @@ export const colors = {
   gradientStep3: 'rgba(0, 70, 150, 0.1)',
   gradientStep4: 'rgba(0, 50, 100, 0.07)',
   gradientEnd: 'rgba(0, 30, 70, 0.03)',
+  
+  // Additional gradient variants
+  gradientMid1: 'rgba(0, 150, 255, 0.3)',
+  gradientMid2: 'rgba(0, 100, 200, 0.2)',
+  gradientCenter: 'rgba(0, 80, 160, 0.15)',
 };
 
 export const animations = {

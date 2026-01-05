@@ -1,21 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography, globalStyles } from '../styles/theme';
 import SparkOrb from '../components/SparkOrb';
 import CardStack from '../components/CardStack';
+import { StandardModuleCard, TechnicalModuleCard, PracticalModuleCard } from '../components/ModuleCard';
 import learningCardsData from '../data/learningCards.json';
+import learningModulesData from '../data/learningModules.json';
+import { getModuleProgress, saveModuleProgress } from '../utils/progressStorage';
 
-const DiscoverScreen = () => {
-  const [showCards, setShowCards] = useState(false);
+const DiscoverScreen = ({ navigation, route }) => {
+  const [activeModule, setActiveModule] = useState(null);
+  const [modulesProgress, setModulesProgress] = useState({});
+  const [startCardIndex, setStartCardIndex] = useState(0);
 
-  if (showCards) {
+  // Load progress for all modules
+  useEffect(() => {
+    loadAllProgress();
+  }, []);
+
+  // Handle navigation params (when coming from HomeScreen)
+  useEffect(() => {
+    if (route?.params?.moduleId && route?.params?.startIndex !== undefined) {
+      const module = learningModulesData.find(m => m.id === route.params.moduleId);
+      if (module) {
+        setActiveModule(module);
+        setStartCardIndex(route.params.startIndex);
+      }
+    }
+  }, [route?.params]);
+
+  const loadAllProgress = async () => {
+    const progress = {};
+    for (const module of learningModulesData) {
+      const moduleProgress = await getModuleProgress(module.id);
+      if (moduleProgress) {
+        progress[module.id] = moduleProgress;
+      }
+    }
+    setModulesProgress(progress);
+  };
+
+  const handleModulePress = async (module) => {
+    const progress = await getModuleProgress(module.id);
+    const startIndex = progress?.currentCardIndex || 0;
+    setStartCardIndex(startIndex);
+    setActiveModule(module);
+  };
+
+  const handleCardProgress = async (cardIndex) => {
+    if (activeModule) {
+      await saveModuleProgress(
+        activeModule.id,
+        cardIndex,
+        activeModule.totalCards,
+        cardIndex >= activeModule.totalCards - 1
+      );
+      await loadAllProgress();
+    }
+  };
+
+  const handleModuleComplete = async () => {
+    if (activeModule) {
+      await saveModuleProgress(
+        activeModule.id,
+        activeModule.totalCards,
+        activeModule.totalCards,
+        true
+      );
+      await loadAllProgress();
+    }
+    setActiveModule(null);
+    setStartCardIndex(0);
+  };
+
+  // Show CardStack if a module is active
+  if (activeModule) {
     return (
       <SafeAreaView style={globalStyles.safeArea} edges={['top']}>
         <LinearGradient
@@ -32,13 +98,16 @@ const DiscoverScreen = () => {
         />
         
         <CardStack 
-          cards={learningCardsData} 
-          onComplete={() => setShowCards(false)}
+          cards={learningCardsData}
+          startIndex={startCardIndex}
+          onComplete={handleModuleComplete}
+          onProgressUpdate={handleCardProgress}
         />
       </SafeAreaView>
     );
   }
 
+  // Module selection view
   return (
     <SafeAreaView style={globalStyles.safeArea} edges={['top']}>
       <LinearGradient
@@ -46,11 +115,15 @@ const DiscoverScreen = () => {
         style={globalStyles.gradientOverlay}
       />
 
-      <View style={styles.container}>
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Header with Spark Orb */}
         <View style={styles.header}>
           <View style={styles.orbHeader}>
-            <SparkOrb size={100} animate={true} />
+            <SparkOrb size={80} animate={true} />
           </View>
           <Text style={styles.title}>AI Discovery Hub</Text>
           <Text style={styles.subtitle}>
@@ -58,135 +131,95 @@ const DiscoverScreen = () => {
           </Text>
         </View>
 
-        {/* Start Learning Button */}
-        <View style={styles.actionContainer}>
-          <TouchableOpacity
-            style={[globalStyles.glowCard, styles.startButton]}
-            activeOpacity={0.8}
-            onPress={() => setShowCards(true)}
-          >
-            <LinearGradient
-              colors={[colors.primaryBlue, colors.accentCyan]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.buttonGradient}
-            >
-              <Text style={styles.startButtonIcon}>🧠</Text>
-              <Text style={styles.startButtonText}>Start Learning</Text>
-              <Text style={styles.startButtonSubtext}>12 Cards • Neural Networks</Text>
-            </LinearGradient>
-          </TouchableOpacity>
+        {/* Modules Section */}
+        <View style={styles.modulesSection}>
+          <Text style={styles.sectionTitle}>Featured Modules</Text>
+          
+          {/* Module 1 - Standard Layout */}
+          <StandardModuleCard
+            module={learningModulesData[0]}
+            progress={modulesProgress[learningModulesData[0].id]}
+            onPress={() => handleModulePress(learningModulesData[0])}
+          />
 
-          {/* Features Grid */}
-          <View style={styles.featuresGrid}>
-            <View style={[globalStyles.card, styles.featureBox]}>
-              <Text style={styles.featureNumber}>12</Text>
-              <Text style={styles.featureLabel}>Cards</Text>
-            </View>
-            <View style={[globalStyles.card, styles.featureBox]}>
-              <Text style={styles.featureNumber}>2-4</Text>
-              <Text style={styles.featureLabel}>Min Each</Text>
-            </View>
-            <View style={[globalStyles.card, styles.featureBox]}>
-              <Text style={styles.featureNumber}>+250</Text>
-              <Text style={styles.featureLabel}>XP</Text>
-            </View>
-          </View>
+          {/* Module 2 - Technical Layout */}
+          <TechnicalModuleCard
+            module={learningModulesData[1]}
+            progress={modulesProgress[learningModulesData[1].id]}
+            onPress={() => handleModulePress(learningModulesData[1])}
+          />
+
+          {/* Module 3 - Practical Layout */}
+          <PracticalModuleCard
+            module={learningModulesData[2]}
+            progress={modulesProgress[learningModulesData[2].id]}
+            onPress={() => handleModulePress(learningModulesData[2])}
+          />
         </View>
 
         {/* Coming Soon Section */}
         <View style={styles.comingSoonSection}>
           <Text style={styles.comingSoonTitle}>More Coming Soon</Text>
           <Text style={styles.comingSoonText}>
-            🚀 AI Chat • Voice Learning • AR Experiences
+            New modules added weekly. Stay tuned!
           </Text>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  scrollView: {
     flex: 1,
-    paddingHorizontal: spacing.lg,
+  },
+  scrollContent: {
+    paddingBottom: 100,
   },
   header: {
     alignItems: 'center',
-    paddingTop: spacing.xxl,
-    marginBottom: spacing.xl,
+    paddingTop: spacing.xl,
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.lg,
   },
   orbHeader: {
-    marginBottom: spacing.xl,
+    marginBottom: spacing.md,
   },
   title: {
     ...typography.h1,
-    color: colors.textPrimary,
+    color: colors.text,
+    marginBottom: spacing.xs,
     textAlign: 'center',
-    marginBottom: spacing.sm,
   },
   subtitle: {
     ...typography.body,
     color: colors.textSecondary,
     textAlign: 'center',
   },
-  actionContainer: {
+  modulesSection: {
+    paddingHorizontal: spacing.lg,
     marginBottom: spacing.xl,
   },
-  startButton: {
-    marginBottom: spacing.lg,
-    padding: 0,
-    overflow: 'hidden',
-  },
-  buttonGradient: {
-    padding: spacing.xl,
-    alignItems: 'center',
-  },
-  startButtonIcon: {
-    fontSize: 48,
-    marginBottom: spacing.md,
-  },
-  startButtonText: {
+  sectionTitle: {
     ...typography.h2,
-    color: colors.textPrimary,
-    marginBottom: spacing.xs,
-  },
-  startButtonSubtext: {
-    ...typography.bodySecondary,
-    color: colors.textSecondary,
-  },
-  featuresGrid: {
-    flexDirection: 'row',
-    gap: spacing.md,
-  },
-  featureBox: {
-    flex: 1,
-    padding: spacing.lg,
-    alignItems: 'center',
-  },
-  featureNumber: {
-    fontSize: 32,
-    fontWeight: '700',
-    color: colors.primaryBlue,
-    marginBottom: spacing.xs,
-  },
-  featureLabel: {
-    ...typography.caption,
-    color: colors.textSecondary,
+    color: colors.text,
+    marginBottom: spacing.md,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   comingSoonSection: {
-    marginTop: 'auto',
-    paddingBottom: 120, // Extra space for tab bar
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.xl,
     alignItems: 'center',
   },
   comingSoonTitle: {
-    ...typography.h4,
-    color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    ...typography.h3,
+    color: colors.text,
+    marginBottom: spacing.xs,
   },
   comingSoonText: {
-    ...typography.caption,
-    color: colors.textMuted,
+    ...typography.body,
+    color: colors.textSecondary,
     textAlign: 'center',
   },
 });

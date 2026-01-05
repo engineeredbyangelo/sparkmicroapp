@@ -19,7 +19,7 @@ import userProgressData from '../data/userProgress.json';
 
 const { width } = Dimensions.get('window');
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -29,6 +29,16 @@ const HomeScreen = () => {
 
   const inProgressArticles = articlesData.filter(article => article.inProgress);
   const newTopics = topicsData.filter(topic => topic.trending);
+
+  const handleArticlePress = (article) => {
+    if (article.moduleId) {
+      // Navigate to Discover screen with module and card index
+      navigation.navigate('Discover', {
+        moduleId: article.moduleId,
+        startIndex: article.currentCardIndex || 0,
+      });
+    }
+  };
 
   return (
     <SafeAreaView style={globalStyles.safeArea} edges={['top']}>
@@ -98,7 +108,11 @@ const HomeScreen = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Continue Learning</Text>
           {inProgressArticles.map(article => (
-            <TouchableOpacity key={article.id} activeOpacity={0.8}>
+            <TouchableOpacity 
+              key={article.id} 
+              activeOpacity={0.8}
+              onPress={() => handleArticlePress(article)}
+            >
               <View style={[globalStyles.card, styles.articleCard]}>
                 <View style={styles.articleHeader}>
                   <View style={styles.articleBadge}>
@@ -110,6 +124,15 @@ const HomeScreen = () => {
                 <Text style={styles.articleDescription} numberOfLines={2}>
                   {article.description}
                 </Text>
+                
+                {/* Quick Preview of where they left off */}
+                {article.currentCardIndex > 0 && (
+                  <View style={styles.resumePreview}>
+                    <Text style={styles.resumeText}>
+                      📍 Resume at Card {article.currentCardIndex + 1}
+                    </Text>
+                  </View>
+                )}
                 
                 {/* Progress Bar */}
                 <View style={styles.articleProgressContainer}>
@@ -318,6 +341,20 @@ const styles = StyleSheet.create({
   articleDescription: {
     ...typography.bodySecondary,
     marginBottom: spacing.md,
+  },
+  resumePreview: {
+    backgroundColor: 'rgba(0, 150, 255, 0.15)',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: 8,
+    marginBottom: spacing.md,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.accentCyan,
+  },
+  resumeText: {
+    ...typography.caption,
+    color: colors.accentCyan,
+    fontWeight: '600',
   },
   articleProgressContainer: {
     flexDirection: 'row',

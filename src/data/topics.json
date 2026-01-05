@@ -1,66 +1,74 @@
 [
   {
-    "id": 1,
+    "id": "artificial-intelligence",
     "name": "Artificial Intelligence",
-    "icon": "🤖",
+    "title": "Artificial Intelligence",
+    "icon": "MaterialCommunityIcons/robot",
     "color": "#00D9FF",
-    "articlesCount": 24,
+    "articlesCount": 12,
     "trending": true
   },
   {
-    "id": 2,
+    "id": "web-development",
     "name": "Web Development",
-    "icon": "🌐",
+    "title": "Web Development",
+    "icon": "Ionicons/code-slash",
     "color": "#FF6B9D",
-    "articlesCount": 42,
+    "articlesCount": 10,
     "trending": false
   },
   {
-    "id": 3,
+    "id": "data-science",
     "name": "Data Science",
-    "icon": "📊",
+    "title": "Data Science",
+    "icon": "Ionicons/stats-chart",
     "color": "#FFD700",
-    "articlesCount": 31,
+    "articlesCount": 8,
     "trending": true
   },
   {
-    "id": 4,
+    "id": "cybersecurity",
     "name": "Cybersecurity",
-    "icon": "🔒",
+    "title": "Cybersecurity",
+    "icon": "Ionicons/shield-checkmark",
     "color": "#FF4757",
-    "articlesCount": 18,
+    "articlesCount": 6,
     "trending": false
   },
   {
-    "id": 5,
+    "id": "devops",
     "name": "DevOps",
-    "icon": "⚙️",
+    "title": "DevOps",
+    "icon": "MaterialCommunityIcons/infinity",
     "color": "#5F27CD",
-    "articlesCount": 27,
+    "articlesCount": 6,
     "trending": true
   },
   {
-    "id": 6,
+    "id": "mobile-development",
     "name": "Mobile Development",
-    "icon": "📱",
+    "title": "Mobile Development",
+    "icon": "Ionicons/phone-portrait",
     "color": "#00D2D3",
-    "articlesCount": 35,
+    "articlesCount": 5,
     "trending": false
   },
   {
-    "id": 7,
+    "id": "cloud-computing",
     "name": "Cloud Computing",
-    "icon": "☁️",
+    "title": "Cloud Computing",
+    "icon": "Ionicons/cloud",
     "color": "#54A0FF",
-    "articlesCount": 29,
+    "articlesCount": 8,
     "trending": true
   },
   {
-    "id": 8,
+    "id": "blockchain",
     "name": "Blockchain",
-    "icon": "⛓️",
+    "title": "Blockchain",
+    "icon": "MaterialCommunityIcons/link-variant",
     "color": "#FFA502",
-    "articlesCount": 15,
+    "articlesCount": 2,
     "trending": false
   }
 ]

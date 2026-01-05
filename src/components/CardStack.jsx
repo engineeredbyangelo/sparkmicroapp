@@ -13,12 +13,14 @@ import LearningCard from './LearningCard';
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const CARD_HEIGHT = SCREEN_HEIGHT * 0.75;
 
-const CardStack = ({ cards, onComplete }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const CardStack = ({ cards, onComplete, startIndex = 0, onProgressUpdate }) => {
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
 
   const handleNext = () => {
-    if (currentIndex < cards.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    const nextIndex = currentIndex + 1;
+    if (nextIndex < cards.length) {
+      setCurrentIndex(nextIndex);
+      onProgressUpdate && onProgressUpdate(nextIndex);
     } else {
       onComplete && onComplete();
     }
@@ -26,7 +28,9 @@ const CardStack = ({ cards, onComplete }) => {
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      const prevIndex = currentIndex - 1;
+      setCurrentIndex(prevIndex);
+      onProgressUpdate && onProgressUpdate(prevIndex);
     }
   };
 

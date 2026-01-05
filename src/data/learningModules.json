@@ -1,0 +1,71 @@
+[
+  {
+    "id": "neural-networks-101",
+    "title": "Neural Networks 101",
+    "subtitle": "Master the fundamentals of AI",
+    "category": "AI & Machine Learning",
+    "difficulty": "Intermediate",
+    "totalCards": 12,
+    "estimatedTime": "15 min",
+    "color": "#0096FF",
+    "gradient": ["#0096FF", "#00D4FF"],
+    "icon": "🧠",
+    "description": "Dive deep into neural networks, from basic neurons to complex architectures. Learn how AI systems learn and make decisions.",
+    "tags": ["Deep Learning", "AI", "Neural Networks", "Backpropagation"],
+    "prerequisites": [],
+    "learningObjectives": [
+      "Understand neuron structure and activation functions",
+      "Learn how neural networks process information",
+      "Master backpropagation and training concepts"
+    ],
+    "cardLayout": "standard",
+    "featured": true,
+    "releaseDate": "2026-01-01"
+  },
+  {
+    "id": "quantum-computing-basics",
+    "title": "Quantum Computing Basics",
+    "subtitle": "Explore the quantum realm",
+    "category": "Computer Science",
+    "difficulty": "Advanced",
+    "totalCards": 10,
+    "estimatedTime": "12 min",
+    "color": "#BD00FF",
+    "gradient": ["#BD00FF", "#FF00E5"],
+    "icon": "⚛️",
+    "description": "Journey into quantum mechanics and computing. Understand qubits, superposition, and quantum algorithms that will revolutionize technology.",
+    "tags": ["Quantum", "Physics", "Qubits", "Algorithms"],
+    "prerequisites": ["neural-networks-101"],
+    "learningObjectives": [
+      "Grasp quantum superposition and entanglement",
+      "Understand qubit representation",
+      "Explore quantum algorithms like Shor's and Grover's"
+    ],
+    "cardLayout": "technical",
+    "featured": true,
+    "releaseDate": "2026-01-02"
+  },
+  {
+    "id": "react-native-fundamentals",
+    "title": "React Native Fundamentals",
+    "subtitle": "Build mobile apps with ease",
+    "category": "Mobile Development",
+    "difficulty": "Beginner",
+    "totalCards": 8,
+    "estimatedTime": "10 min",
+    "color": "#61DAFB",
+    "gradient": ["#61DAFB", "#00D8FF"],
+    "icon": "📱",
+    "description": "Master React Native for cross-platform mobile development. Learn components, state management, and native features.",
+    "tags": ["React", "Mobile", "JavaScript", "Expo"],
+    "prerequisites": [],
+    "learningObjectives": [
+      "Build mobile UI with React Native components",
+      "Manage state and navigation",
+      "Integrate native device features"
+    ],
+    "cardLayout": "practical",
+    "featured": false,
+    "releaseDate": "2026-01-03"
+  }
+]

@@ -21,7 +21,7 @@ import {
 
 // Screens
 import HomeScreen from './screens/HomeScreen';
-import ExploreScreen from './screens/ExploreScreen';
+import ExploreStackNavigator from './navigation/ExploreStackNavigator';
 import DiscoverScreen from './screens/DiscoverScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SettingsScreen from './screens/SettingsScreen';
@@ -82,7 +82,7 @@ export default function App() {
           }}
         >
           <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Explore" component={ExploreScreen} />
+          <Tab.Screen name="Explore" component={ExploreStackNavigator} />
           <Tab.Screen name="Discover" component={DiscoverScreen} />
           <Tab.Screen name="Profile" component={ProfileScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
