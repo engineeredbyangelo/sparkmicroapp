@@ -11,9 +11,18 @@ import { colors, spacing, typography, globalStyles } from '../styles/theme';
 import SparkOrb from '../components/SparkOrb';
 import CardStack from '../components/CardStack';
 import { StandardModuleCard, TechnicalModuleCard, PracticalModuleCard } from '../components/ModuleCard';
-import learningCardsData from '../data/learningCards.json';
+import neuralNetworksCards from '../data/learningCards.json';
+import quantumCards from '../data/quantumCards.json';
+import reactNativeCards from '../data/reactNativeCards.json';
 import learningModulesData from '../data/learningModules.json';
 import { getModuleProgress, saveModuleProgress } from '../utils/progressStorage';
+
+// Map module IDs to their card data
+const MODULE_CARDS = {
+  'neural-networks-101': neuralNetworksCards,
+  'quantum-computing-basics': quantumCards,
+  'react-native-fundamentals': reactNativeCards,
+};
 
 const DiscoverScreen = ({ navigation, route }) => {
   const [activeModule, setActiveModule] = useState(null);
@@ -82,6 +91,8 @@ const DiscoverScreen = ({ navigation, route }) => {
 
   // Show CardStack if a module is active
   if (activeModule) {
+    const moduleCards = MODULE_CARDS[activeModule.id] || neuralNetworksCards;
+    
     return (
       <SafeAreaView style={globalStyles.safeArea} edges={['top']}>
         <LinearGradient
@@ -98,7 +109,7 @@ const DiscoverScreen = ({ navigation, route }) => {
         />
         
         <CardStack 
-          cards={learningCardsData}
+          cards={moduleCards}
           startIndex={startCardIndex}
           onComplete={handleModuleComplete}
           onProgressUpdate={handleCardProgress}
@@ -187,7 +198,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...typography.h1,
-    color: colors.text,
+    color: '#FFFFFF',
     marginBottom: spacing.xs,
     textAlign: 'center',
   },

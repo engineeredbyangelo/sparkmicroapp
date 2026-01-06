@@ -26,7 +26,14 @@ const LearningCard = ({ card }) => {
       return <QuizCard card={card} />;
     case 'completion':
       return <CompletionCard card={card} />;
+    // Card types that use TextFocusedCard as fallback renderer
+    case 'code-snippet':
+    case 'action-steps':
+    case 'visual':
+    case 'key-insight':
+      return <TextFocusedCard card={card} />;
     default:
+      console.warn(`Unknown card type: ${card.type}`);
       return <TextFocusedCard card={card} />;
   }
 };

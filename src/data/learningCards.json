@@ -28,14 +28,10 @@
   },
   {
     "id": 3,
-    "type": "visual",
+    "type": "text-focused",
     "title": "Network Architecture",
-    "content": "Neural networks are organized in layers: input, hidden, and output. Deep learning uses multiple hidden layers for complex pattern recognition.",
-    "visualType": "diagram",
-    "visualData": {
-      "layers": ["Input", "Hidden 1", "Hidden 2", "Output"],
-      "connections": "fully-connected"
-    },
+    "content": "Neural networks are organized in layers: input, hidden, and output. Deep learning uses multiple hidden layers for complex pattern recognition.\n\n• Input Layer: Receives raw data\n• Hidden Layers: Process and transform data\n• Output Layer: Produces final predictions",
+    "keyTakeaway": "Deep networks use multiple hidden layers for complex pattern recognition.",
     "difficulty": "Intermediate",
     "readTime": "4 min",
     "category": "AI & Machine Learning",
@@ -120,11 +116,10 @@
   },
   {
     "id": 9,
-    "type": "code-snippet",
+    "type": "text-focused",
     "title": "Simple Neuron in Python",
-    "content": "Here's how a basic neuron processes information:",
-    "code": "def neuron(inputs, weights, bias):\n    # Weighted sum\n    total = sum(i * w for i, w in zip(inputs, weights))\n    # Add bias and activate\n    return sigmoid(total + bias)",
-    "language": "python",
+    "content": "Here's how a basic neuron processes information:\n\ndef neuron(inputs, weights, bias):\n    total = sum(i * w for i, w in zip(inputs, weights))\n    return sigmoid(total + bias)\n\nThe neuron computes a weighted sum, adds bias, then applies activation.",
+    "keyTakeaway": "A neuron computes weighted sum + bias, then applies activation.",
     "difficulty": "Intermediate",
     "readTime": "3 min",
     "category": "AI & Machine Learning",
@@ -132,14 +127,14 @@
   },
   {
     "id": 10,
-    "type": "action-steps",
+    "type": "timeline",
     "title": "Build Your First Network",
-    "steps": [
-      "Choose a framework (TensorFlow, PyTorch)",
-      "Prepare your dataset",
-      "Define network architecture",
-      "Train with backpropagation",
-      "Evaluate and iterate"
+    "events": [
+      {"year": "Step 1", "title": "Choose Framework", "description": "Select TensorFlow or PyTorch"},
+      {"year": "Step 2", "title": "Prepare Data", "description": "Clean and split your dataset"},
+      {"year": "Step 3", "title": "Define Architecture", "description": "Design layers and connections"},
+      {"year": "Step 4", "title": "Train Network", "description": "Use backpropagation to optimize"},
+      {"year": "Step 5", "title": "Evaluate", "description": "Test and refine your model"}
     ],
     "difficulty": "Advanced",
     "readTime": "4 min",
@@ -148,14 +143,10 @@
   },
   {
     "id": 11,
-    "type": "key-insight",
+    "type": "text-focused",
     "title": "The Power of Deep Learning",
-    "insight": "Deep networks can learn hierarchical representations - low layers detect edges, middle layers recognize shapes, and deep layers understand concepts.",
-    "examples": [
-      "Image: edges → textures → objects",
-      "Text: characters → words → meaning",
-      "Audio: frequencies → phonemes → speech"
-    ],
+    "content": "Deep networks learn hierarchical representations - low layers detect edges, middle layers recognize shapes, and deep layers understand concepts.\n\n• Image: edges → textures → objects\n• Text: characters → words → meaning\n• Audio: frequencies → phonemes → speech",
+    "keyTakeaway": "Deep networks learn hierarchical representations from simple to complex.",
     "difficulty": "Advanced",
     "readTime": "4 min",
     "category": "AI & Machine Learning",

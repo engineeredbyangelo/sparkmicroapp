@@ -14,7 +14,9 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const CARD_HEIGHT = SCREEN_HEIGHT * 0.75;
 
 const CardStack = ({ cards, onComplete, startIndex = 0, onProgressUpdate }) => {
-  const [currentIndex, setCurrentIndex] = useState(startIndex);
+  // Ensure startIndex is within bounds
+  const safeStartIndex = Math.min(Math.max(0, startIndex), Math.max(0, cards.length - 1));
+  const [currentIndex, setCurrentIndex] = useState(safeStartIndex);
 
   const handleNext = () => {
     const nextIndex = currentIndex + 1;
@@ -36,7 +38,7 @@ const CardStack = ({ cards, onComplete, startIndex = 0, onProgressUpdate }) => {
 
 
 
-  if (cards.length === 0) {
+  if (!cards || cards.length === 0) {
     return (
       <View style={styles.emptyContainer}>
         <Text style={styles.emptyText}>No cards available</Text>
@@ -45,6 +47,15 @@ const CardStack = ({ cards, onComplete, startIndex = 0, onProgressUpdate }) => {
   }
 
   const currentCard = cards[currentIndex];
+
+  // Safety check if card is undefined
+  if (!currentCard) {
+    return (
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyText}>Card not found</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
