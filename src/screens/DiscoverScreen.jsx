@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, typography, globalStyles } from '../styles/theme';
 import SparkOrb from '../components/SparkOrb';
 import CardStack from '../components/CardStack';
@@ -22,6 +23,23 @@ const MODULE_CARDS = {
   'neural-networks-101': neuralNetworksCards,
   'quantum-computing-basics': quantumCards,
   'react-native-fundamentals': reactNativeCards,
+};
+
+// Configuration constants
+const MAX_MODULES_DISPLAYED = 5;
+const MAX_MINUTES_QUICK_LEARN = 5;
+
+// Filter and limit modules for Quick Learn section
+const getQuickLearnModules = (modules) => {
+  return modules
+    .filter(m => m.quickLearn && m.estimatedMinutes <= MAX_MINUTES_QUICK_LEARN)
+    .slice(0, MAX_MODULES_DISPLAYED);
+};
+
+// Get card layout component based on module index (cycles through 3 layouts)
+const getModuleCardComponent = (index) => {
+  const layouts = [StandardModuleCard, TechnicalModuleCard, PracticalModuleCard];
+  return layouts[index % layouts.length];
 };
 
 const DiscoverScreen = ({ navigation, route }) => {
@@ -144,28 +162,26 @@ const DiscoverScreen = ({ navigation, route }) => {
 
         {/* Modules Section */}
         <View style={styles.modulesSection}>
-          <Text style={styles.sectionTitle}>Featured Modules</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Quick Learn</Text>
+            <View style={styles.badgeContainer}>
+              <Ionicons name="flash" size={14} color="#FFD700" />
+              <Text style={styles.badgeText}>≤5 min each</Text>
+            </View>
+          </View>
           
-          {/* Module 1 - Standard Layout */}
-          <StandardModuleCard
-            module={learningModulesData[0]}
-            progress={modulesProgress[learningModulesData[0].id]}
-            onPress={() => handleModulePress(learningModulesData[0])}
-          />
-
-          {/* Module 2 - Technical Layout */}
-          <TechnicalModuleCard
-            module={learningModulesData[1]}
-            progress={modulesProgress[learningModulesData[1].id]}
-            onPress={() => handleModulePress(learningModulesData[1])}
-          />
-
-          {/* Module 3 - Practical Layout */}
-          <PracticalModuleCard
-            module={learningModulesData[2]}
-            progress={modulesProgress[learningModulesData[2].id]}
-            onPress={() => handleModulePress(learningModulesData[2])}
-          />
+          {/* Dynamic Module Rendering */}
+          {getQuickLearnModules(learningModulesData).map((module, index) => {
+            const ModuleCardComponent = getModuleCardComponent(index);
+            return (
+              <ModuleCardComponent
+                key={module.id}
+                module={module}
+                progress={modulesProgress[module.id]}
+                onPress={() => handleModulePress(module)}
+              />
+            );
+          })}
         </View>
 
         {/* Coming Soon Section */}
@@ -211,12 +227,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     marginBottom: spacing.xl,
   },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
   sectionTitle: {
     ...typography.h2,
     color: colors.text,
-    marginBottom: spacing.md,
     textTransform: 'uppercase',
     letterSpacing: 1,
+  },
+  badgeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 12,
+    gap: 4,
+  },
+  badgeText: {
+    ...typography.caption,
+    color: '#FFD700',
+    fontWeight: '600',
   },
   comingSoonSection: {
     paddingHorizontal: spacing.lg,
