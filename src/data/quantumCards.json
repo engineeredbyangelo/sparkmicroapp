@@ -19,15 +19,18 @@
     "id": 15,
     "type": "comparison",
     "title": "Classical vs Quantum",
-    "left": {
-      "label": "Classical Bit",
-      "items": ["Binary: 0 OR 1", "Deterministic", "Sequential processing", "Limited parallelism"]
+    "leftSide": {
+      "title": "Classical Bit",
+      "points": ["Binary: 0 OR 1", "Deterministic", "Sequential processing", "Limited parallelism"]
     },
-    "right": {
-      "label": "Quantum Qubit",
-      "items": ["Superposition: 0 AND 1", "Probabilistic", "Parallel processing", "Exponential scaling"]
+    "rightSide": {
+      "title": "Quantum Qubit",
+      "points": ["Superposition: 0 AND 1", "Probabilistic", "Parallel processing", "Exponential scaling"]
     },
-    "conclusion": "Qubits leverage quantum mechanics to achieve computational advantages impossible for classical systems."
+    "difficulty": "Intermediate",
+    "readTime": "2 min",
+    "category": "Computer Science",
+    "color": "#BD00FF"
   },
   {
     "id": 16,

@@ -19,15 +19,18 @@
     "id": 33,
     "type": "comparison",
     "title": "Python vs Other Languages",
-    "left": {
-      "label": "Other Languages",
-      "items": ["Verbose syntax", "Strict typing required", "Complex setup", "Steeper learning curve"]
+    "leftSide": {
+      "title": "Other Languages",
+      "points": ["Verbose syntax", "Strict typing required", "Complex setup", "Steeper learning curve"]
     },
-    "right": {
-      "label": "Python",
-      "items": ["Clean, readable syntax", "Dynamic typing", "Quick to start", "Beginner-friendly"]
+    "rightSide": {
+      "title": "Python",
+      "points": ["Clean, readable syntax", "Dynamic typing", "Quick to start", "Beginner-friendly"]
     },
-    "conclusion": "Python prioritizes readability and simplicity, making it ideal for beginners and rapid prototyping."
+    "difficulty": "Beginner",
+    "readTime": "2 min",
+    "category": "Programming",
+    "color": "#3776AB"
   },
   {
     "id": 34,

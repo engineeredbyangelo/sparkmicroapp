@@ -19,15 +19,18 @@
     "id": 25,
     "type": "comparison",
     "title": "React vs React Native",
-    "left": {
-      "label": "React (Web)",
-      "items": ["HTML elements (div, span)", "CSS stylesheets", "Browser DOM", "Responsive design"]
+    "leftSide": {
+      "title": "React (Web)",
+      "points": ["HTML elements (div, span)", "CSS stylesheets", "Browser DOM", "Responsive design"]
     },
-    "right": {
-      "label": "React Native",
-      "items": ["Native components (View, Text)", "StyleSheet API", "Native rendering", "Platform-specific code"]
+    "rightSide": {
+      "title": "React Native",
+      "points": ["Native components (View, Text)", "StyleSheet API", "Native rendering", "Platform-specific code"]
     },
-    "conclusion": "React Native uses the same React principles but targets mobile platforms with native components."
+    "difficulty": "Beginner",
+    "readTime": "2 min",
+    "category": "Mobile Development",
+    "color": "#61DAFB"
   },
   {
     "id": 26,

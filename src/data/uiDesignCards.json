@@ -19,15 +19,18 @@
     "id": 39,
     "type": "comparison",
     "title": "Good vs Bad UI",
-    "left": {
-      "label": "Poor Design",
-      "items": ["Cluttered layouts", "Inconsistent spacing", "Low contrast text", "No visual hierarchy"]
+    "leftSide": {
+      "title": "Poor Design",
+      "points": ["Cluttered layouts", "Inconsistent spacing", "Low contrast text", "No visual hierarchy"]
     },
-    "right": {
-      "label": "Great Design",
-      "items": ["Clean whitespace", "Consistent patterns", "Readable typography", "Clear focal points"]
+    "rightSide": {
+      "title": "Great Design",
+      "points": ["Clean whitespace", "Consistent patterns", "Readable typography", "Clear focal points"]
     },
-    "conclusion": "Good UI guides users naturally through content with clear visual cues."
+    "difficulty": "Beginner",
+    "readTime": "2 min",
+    "category": "Design",
+    "color": "#FF6B9D"
   },
   {
     "id": 40,

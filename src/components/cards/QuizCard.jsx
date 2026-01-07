@@ -11,7 +11,17 @@ const QuizCard = ({ card }) => {
     setShowExplanation(true);
   };
 
-  const isCorrect = selectedAnswer === card.correctAnswer;
+  // Handle both object format {correct: true} and index-based correctAnswer
+  const getIsCorrect = () => {
+    if (selectedAnswer === null) return false;
+    const selectedOption = card.options[selectedAnswer];
+    if (typeof selectedOption === 'object') {
+      return selectedOption.correct === true;
+    }
+    return selectedAnswer === card.correctAnswer;
+  };
+  
+  const isCorrect = getIsCorrect();
 
   return (
     <View style={styles.card}>
@@ -33,7 +43,11 @@ const QuizCard = ({ card }) => {
         <View style={styles.options}>
           {card.options.map((option, index) => {
             const isSelected = selectedAnswer === index;
-            const isCorrectOption = index === card.correctAnswer;
+            // Handle both object format {text, correct} and simple string format
+            const optionText = typeof option === 'object' ? option.text : option;
+            const isCorrectOption = typeof option === 'object' 
+              ? option.correct === true 
+              : index === card.correctAnswer;
             
             let optionStyle = styles.option;
             if (showExplanation) {
@@ -57,7 +71,7 @@ const QuizCard = ({ card }) => {
                     {String.fromCharCode(65 + index)}
                   </Text>
                 </View>
-                <Text style={styles.optionText}>{option}</Text>
+                <Text style={styles.optionText}>{optionText}</Text>
                 {showExplanation && isCorrectOption && (
                   <Text style={styles.checkmark}>✓</Text>
                 )}
