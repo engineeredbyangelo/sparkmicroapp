@@ -1,0 +1,88 @@
+[
+  {
+    "id": 31,
+    "type": "hero",
+    "title": "Python Essentials",
+    "subtitle": "The Language of Possibilities",
+    "description": "Python is a versatile, beginner-friendly language used for web development, data science, AI, automation, and more. Its clean syntax makes it perfect for learning programming.",
+    "visual": "🐍",
+    "color": "#3776AB"
+  },
+  {
+    "id": 32,
+    "type": "text-focused",
+    "title": "Variables & Data Types",
+    "content": "Python uses dynamic typing - no need to declare types:\n\n• Strings: name = \"Spark\"\n• Integers: age = 25\n• Floats: price = 19.99\n• Booleans: active = True\n• Lists: items = [1, 2, 3]\n• Dictionaries: user = {\"name\": \"Alex\"}",
+    "keyTakeaway": "Python automatically detects data types - just assign and go!"
+  },
+  {
+    "id": 33,
+    "type": "comparison",
+    "title": "Python vs Other Languages",
+    "left": {
+      "label": "Other Languages",
+      "items": ["Verbose syntax", "Strict typing required", "Complex setup", "Steeper learning curve"]
+    },
+    "right": {
+      "label": "Python",
+      "items": ["Clean, readable syntax", "Dynamic typing", "Quick to start", "Beginner-friendly"]
+    },
+    "conclusion": "Python prioritizes readability and simplicity, making it ideal for beginners and rapid prototyping."
+  },
+  {
+    "id": 34,
+    "type": "stat-highlight",
+    "title": "Python by Numbers",
+    "stats": [
+      {
+        "value": "#1",
+        "label": "Most Popular",
+        "description": "Top language on TIOBE Index 2025"
+      },
+      {
+        "value": "400K+",
+        "label": "Packages",
+        "description": "Libraries available on PyPI"
+      },
+      {
+        "value": "70%",
+        "label": "AI/ML Projects",
+        "description": "Use Python as primary language"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "type": "interactive-quiz",
+    "question": "What is the correct way to create a list in Python?",
+    "options": [
+      {
+        "text": "list = {1, 2, 3}",
+        "correct": false,
+        "feedback": "Curly braces {} create a set or dictionary, not a list."
+      },
+      {
+        "text": "list = [1, 2, 3]",
+        "correct": true,
+        "feedback": "Correct! Square brackets [] are used to create lists in Python."
+      },
+      {
+        "text": "list = (1, 2, 3)",
+        "correct": false,
+        "feedback": "Parentheses () create a tuple, which is immutable unlike lists."
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "type": "completion",
+    "title": "Python Basics Complete! 🎉",
+    "message": "You've learned Python fundamentals! You now understand variables, data types, and what makes Python special.",
+    "xpEarned": 100,
+    "nextModule": "Python Functions & Control Flow",
+    "achievements": [
+      "Python Beginner",
+      "Code Starter"
+    ]
+  }
+]

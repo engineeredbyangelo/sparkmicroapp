@@ -1,0 +1,88 @@
+[
+  {
+    "id": 37,
+    "type": "hero",
+    "title": "UI Design Basics",
+    "subtitle": "Craft Beautiful Interfaces",
+    "description": "Great UI design combines aesthetics with usability. Learn the core principles that make interfaces intuitive, accessible, and visually stunning.",
+    "visual": "🎨",
+    "color": "#FF6B9D"
+  },
+  {
+    "id": 38,
+    "type": "text-focused",
+    "title": "The 4 Core Principles",
+    "content": "Master these fundamentals for any design:\n\n• Contrast: Make important elements stand out\n• Repetition: Create consistency with patterns\n• Alignment: Connect elements visually\n• Proximity: Group related items together\n\nThese C.R.A.P. principles form the foundation of visual hierarchy.",
+    "keyTakeaway": "Remember C.R.A.P: Contrast, Repetition, Alignment, Proximity."
+  },
+  {
+    "id": 39,
+    "type": "comparison",
+    "title": "Good vs Bad UI",
+    "left": {
+      "label": "Poor Design",
+      "items": ["Cluttered layouts", "Inconsistent spacing", "Low contrast text", "No visual hierarchy"]
+    },
+    "right": {
+      "label": "Great Design",
+      "items": ["Clean whitespace", "Consistent patterns", "Readable typography", "Clear focal points"]
+    },
+    "conclusion": "Good UI guides users naturally through content with clear visual cues."
+  },
+  {
+    "id": 40,
+    "type": "stat-highlight",
+    "title": "UI Impact",
+    "stats": [
+      {
+        "value": "94%",
+        "label": "First Impressions",
+        "description": "Are design-related"
+      },
+      {
+        "value": "88%",
+        "label": "Users Won't Return",
+        "description": "After a bad UX experience"
+      },
+      {
+        "value": "200%",
+        "label": "Conversion Increase",
+        "description": "With improved UI design"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "type": "interactive-quiz",
+    "question": "What does visual hierarchy help users do?",
+    "options": [
+      {
+        "text": "Find the most colorful elements",
+        "correct": false,
+        "feedback": "Color is one tool, but hierarchy is about importance, not just color."
+      },
+      {
+        "text": "Understand what's most important first",
+        "correct": true,
+        "feedback": "Correct! Visual hierarchy guides users' attention to the most important elements first."
+      },
+      {
+        "text": "Count the number of elements on screen",
+        "correct": false,
+        "feedback": "Hierarchy isn't about quantity - it's about guiding attention effectively."
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "type": "completion",
+    "title": "UI Design Basics Complete! 🎉",
+    "message": "You've learned the foundations of UI design! Apply these principles to create interfaces that are both beautiful and functional.",
+    "xpEarned": 110,
+    "nextModule": "Color Theory & Typography",
+    "achievements": [
+      "Design Apprentice",
+      "Visual Thinker"
+    ]
+  }
+]

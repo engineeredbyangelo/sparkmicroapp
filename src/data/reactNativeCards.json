@@ -12,7 +12,7 @@
     "id": 24,
     "type": "text-focused",
     "title": "Core Components",
-    "content": "React Native provides platform-specific components that map directly to native UI elements:\n\n• View: Container (like div)\n• Text: Text display (required for all text)\n• ScrollView: Scrollable container\n• FlatList: Optimized list rendering\n• Image: Display images\n• TextInput: Text input fields\n• TouchableOpacity: Touchable elements\n\nThese components render native views, ensuring optimal performance.",
+    "content": "React Native provides platform-specific components that map directly to native UI elements:\n\n• View: Container (like div)\n• Text: Text display (required for all text)\n• ScrollView: Scrollable container\n• FlatList: Optimized list rendering\n• TouchableOpacity: Touchable elements\n\nThese components render native views, ensuring optimal performance.",
     "keyTakeaway": "React Native components compile to native platform elements, not web views."
   },
   {
@@ -31,20 +31,6 @@
   },
   {
     "id": 26,
-    "type": "text-focused",
-    "title": "Your First Component",
-    "content": "Here's a basic React Native component:\n\nimport { View, Text, StyleSheet } from 'react-native';\n\nconst HelloWorld = () => (\n  <View style={styles.container}>\n    <Text style={styles.text}>Hello, React Native!</Text>\n  </View>\n);\n\nThis demonstrates importing native components, creating a functional component, and using StyleSheet for styling.",
-    "keyTakeaway": "React Native uses native components like View and Text instead of HTML elements."
-  },
-  {
-    "id": 27,
-    "type": "text-focused",
-    "title": "State & Props",
-    "content": "React Native uses the same state management as React:\n\nProps (Properties):\n• Pass data from parent to child\n• Immutable within the component\n• Enable component reusability\n\nState:\n• Internal component data\n• Mutable via setState or hooks\n• Triggers re-renders when changed\n\nExample with hooks:\nconst [count, setCount] = useState(0);\n\nUse props for configuration, state for dynamic data.",
-    "keyTakeaway": "Props pass data down, state manages internal component data and triggers re-renders."
-  },
-  {
-    "id": 28,
     "type": "stat-highlight",
     "title": "React Native by Numbers",
     "stats": [
@@ -66,19 +52,29 @@
     ]
   },
   {
-    "id": 29,
-    "type": "timeline",
-    "title": "Build Your First App",
-    "events": [
-      {"year": "Step 1", "title": "Setup Environment", "description": "Install Node.js, npm, and Expo CLI"},
-      {"year": "Step 2", "title": "Create Project", "description": "Run: npx create-expo-app MyApp"},
-      {"year": "Step 3", "title": "Start Development", "description": "Run: npx expo start"},
-      {"year": "Step 4", "title": "Test on Device", "description": "Scan QR code with Expo Go"},
-      {"year": "Step 5", "title": "Build & Deploy", "description": "Use: eas build for production"}
+    "id": 27,
+    "type": "interactive-quiz",
+    "question": "What is the main advantage of React Native over hybrid frameworks?",
+    "options": [
+      {
+        "text": "It uses web views for rendering",
+        "correct": false,
+        "feedback": "React Native doesn't use web views - that's hybrid frameworks like Cordova."
+      },
+      {
+        "text": "It compiles to truly native components",
+        "correct": true,
+        "feedback": "Correct! React Native renders actual native components, giving you native performance and feel."
+      },
+      {
+        "text": "It only works on iOS",
+        "correct": false,
+        "feedback": "React Native works on both iOS and Android from a single codebase."
+      }
     ]
   },
   {
-    "id": 30,
+    "id": 28,
     "type": "completion",
     "title": "React Native Basics Complete! 🎉",
     "message": "You've learned the essentials of React Native! You can now build cross-platform mobile apps with components, state management, and native performance.",

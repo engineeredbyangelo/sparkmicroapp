@@ -15,6 +15,8 @@ import { StandardModuleCard, TechnicalModuleCard, PracticalModuleCard } from '..
 import neuralNetworksCards from '../data/learningCards.json';
 import quantumCards from '../data/quantumCards.json';
 import reactNativeCards from '../data/reactNativeCards.json';
+import pythonCards from '../data/pythonCards.json';
+import uiDesignCards from '../data/uiDesignCards.json';
 import learningModulesData from '../data/learningModules.json';
 import { getModuleProgress, saveModuleProgress } from '../utils/progressStorage';
 
@@ -23,6 +25,8 @@ const MODULE_CARDS = {
   'neural-networks-101': neuralNetworksCards,
   'quantum-computing-basics': quantumCards,
   'react-native-fundamentals': reactNativeCards,
+  'python-essentials': pythonCards,
+  'ui-design-principles': uiDesignCards,
 };
 
 // Configuration constants

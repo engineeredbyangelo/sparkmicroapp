@@ -15,12 +15,8 @@
     "id": 2,
     "type": "text-focused",
     "title": "How Neurons Work",
-    "content": "Each neuron receives input signals, processes them using an activation function, and passes the result to the next layer. This simple mechanism, when replicated thousands of times, creates powerful learning systems.",
-    "keyPoints": [
-      "Neurons receive weighted inputs",
-      "Activation functions introduce non-linearity",
-      "Output passes to next layer"
-    ],
+    "content": "Each neuron receives input signals, processes them using an activation function, and passes the result to the next layer.\n\n• Input Layer: Receives raw data\n• Hidden Layers: Process and transform data\n• Output Layer: Produces final predictions",
+    "keyTakeaway": "Deep networks use multiple hidden layers for complex pattern recognition.",
     "difficulty": "Beginner",
     "readTime": "3 min",
     "category": "AI & Machine Learning",
@@ -28,29 +24,6 @@
   },
   {
     "id": 3,
-    "type": "text-focused",
-    "title": "Network Architecture",
-    "content": "Neural networks are organized in layers: input, hidden, and output. Deep learning uses multiple hidden layers for complex pattern recognition.\n\n• Input Layer: Receives raw data\n• Hidden Layers: Process and transform data\n• Output Layer: Produces final predictions",
-    "keyTakeaway": "Deep networks use multiple hidden layers for complex pattern recognition.",
-    "difficulty": "Intermediate",
-    "readTime": "4 min",
-    "category": "AI & Machine Learning",
-    "color": "#001F3F"
-  },
-  {
-    "id": 4,
-    "type": "quote",
-    "title": "Training Process",
-    "quote": "A neural network learns by adjusting weights through backpropagation, minimizing the difference between predicted and actual outputs.",
-    "author": "Geoffrey Hinton",
-    "content": "The training process involves feeding data forward, calculating error, and propagating corrections backward through the network.",
-    "difficulty": "Intermediate",
-    "readTime": "3 min",
-    "category": "AI & Machine Learning",
-    "color": "#00D9FF"
-  },
-  {
-    "id": 5,
     "type": "comparison",
     "title": "Traditional vs Neural Computing",
     "leftSide": {
@@ -67,12 +40,12 @@
     "color": "#BD00FF"
   },
   {
-    "id": 6,
+    "id": 4,
     "type": "stat-highlight",
     "title": "AI Performance Metrics",
     "stats": [
       { "value": "97%", "label": "Image Recognition Accuracy" },
-      { "value": "10M+", "label": "Parameters in GPT-3" },
+      { "value": "175B", "label": "Parameters in GPT-3" },
       { "value": "100x", "label": "Faster than Humans at Chess" }
     ],
     "content": "Modern neural networks achieve superhuman performance in many specialized tasks.",
@@ -82,22 +55,7 @@
     "color": "#FF6B9D"
   },
   {
-    "id": 7,
-    "type": "timeline",
-    "title": "Evolution of AI",
-    "events": [
-      { "year": "1943", "event": "First neural network model" },
-      { "year": "1986", "event": "Backpropagation algorithm" },
-      { "year": "2012", "event": "Deep learning breakthrough" },
-      { "year": "2023", "event": "Large language models" }
-    ],
-    "difficulty": "Beginner",
-    "readTime": "3 min",
-    "category": "AI & Machine Learning",
-    "color": "#FFD700"
-  },
-  {
-    "id": 8,
+    "id": 5,
     "type": "interactive-quiz",
     "title": "Quick Check",
     "question": "What is the primary function of an activation function in a neural network?",
@@ -115,45 +73,7 @@
     "color": "#00FF88"
   },
   {
-    "id": 9,
-    "type": "text-focused",
-    "title": "Simple Neuron in Python",
-    "content": "Here's how a basic neuron processes information:\n\ndef neuron(inputs, weights, bias):\n    total = sum(i * w for i, w in zip(inputs, weights))\n    return sigmoid(total + bias)\n\nThe neuron computes a weighted sum, adds bias, then applies activation.",
-    "keyTakeaway": "A neuron computes weighted sum + bias, then applies activation.",
-    "difficulty": "Intermediate",
-    "readTime": "3 min",
-    "category": "AI & Machine Learning",
-    "color": "#0096FF"
-  },
-  {
-    "id": 10,
-    "type": "timeline",
-    "title": "Build Your First Network",
-    "events": [
-      {"year": "Step 1", "title": "Choose Framework", "description": "Select TensorFlow or PyTorch"},
-      {"year": "Step 2", "title": "Prepare Data", "description": "Clean and split your dataset"},
-      {"year": "Step 3", "title": "Define Architecture", "description": "Design layers and connections"},
-      {"year": "Step 4", "title": "Train Network", "description": "Use backpropagation to optimize"},
-      {"year": "Step 5", "title": "Evaluate", "description": "Test and refine your model"}
-    ],
-    "difficulty": "Advanced",
-    "readTime": "4 min",
-    "category": "AI & Machine Learning",
-    "color": "#0066CC"
-  },
-  {
-    "id": 11,
-    "type": "text-focused",
-    "title": "The Power of Deep Learning",
-    "content": "Deep networks learn hierarchical representations - low layers detect edges, middle layers recognize shapes, and deep layers understand concepts.\n\n• Image: edges → textures → objects\n• Text: characters → words → meaning\n• Audio: frequencies → phonemes → speech",
-    "keyTakeaway": "Deep networks learn hierarchical representations from simple to complex.",
-    "difficulty": "Advanced",
-    "readTime": "4 min",
-    "category": "AI & Machine Learning",
-    "color": "#001F3F"
-  },
-  {
-    "id": 12,
+    "id": 6,
     "type": "completion",
     "title": "Module Complete!",
     "content": "You've learned the fundamentals of neural networks - from individual neurons to deep learning architectures. Ready to explore more?",
